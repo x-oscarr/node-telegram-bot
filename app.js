@@ -5,8 +5,25 @@ const container = new BotContainer();
 configureServices(container);
 
 botEmitter = container.get('botEmitter');
+botHandler = container.get('botHandler');
 bot = container.get('bot');
+botHandler.run();
 
+///////////////////////////////////
+//            EVENTS            //
+//////////////////////////////////
+
+// Event Listener
+botEmitter.on('startMessageListener', (data) => {
+    const {counter = 1, cmd, ...methodList} = data;
+    botHandler.messageListener = {counter, cmd, methodList};
+});
+
+botEmitter.on('stopMessageLisneter', () => {
+    botHandler.messageListener = false;
+});
+
+// Send Messages
 botEmitter.on('sendMessage', (data) => {
     const {chat_id, text, ...options} = data;
     bot.sendMessage(chat_id, text, options);
@@ -51,25 +68,3 @@ botEmitter.on('answerCallbackQuery', (data) => {
     const {callbackQueryId, ...options} = data;
     bot.sendPhoto(callbackQueryId, options);
 });
-
-botHandler = container.get('botHandler');
-botHandler.commandLoader();
-
-bot.on('message',
-    (msg) => {
-        //console.log(msg);
-});
-
-bot.on('callback_query', (callback) => {
-   console.log(callback)
-});
-//bot.sendMessage(413537785, 'катаєте шось?')
-
-// Matches "/echo [whatever]"
-// bot.onText(/\/echo (.+)/, (msg, match) => {
-//     const chatId = msg.chat.id;
-//     const resp = match[1]; // the captured "whatever"
-//
-//     // send back the matched "whatever" to the chat
-//     bot.sendMessage(chatId, resp);
-// });

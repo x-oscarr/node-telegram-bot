@@ -1,70 +1,88 @@
-const StartCommand = require('./commands/start');
-
 class BotHandler {
-
     constructor(container) {
+        this.container = container;
         this.bot = container.get('bot');
-        this.list = [new StartCommand(container)];
-        this.methods = {
-            //Message
-            sendMessage: true,
-            sendPhoto: true,
-            sendAudio: true,
-            sendDocument: true,
-            sendSticker: true,
-            sendVideo: true,
-            sendVoice: true,
-            sendVideoNote: true,
-            sendStiker: true,
-            sendLocation: true,
-            sendVenue: true,
-            sendContact: true,
-            editMessageText: true,
-            editMessageCaption: true,
-            editMessageReplyMarkup: true,
-            getUserProfilePhotos: true,
-            editMessageLiveLocation: true,
-            stopMessageLiveLocation: true,
-            deleteMessage: true,
-            // Files
-            getFile: true,
-            getFileLink: true,
-            getFileStream: true,
-            downloadFile: true,
-            //Button answer
-            answerCallbackQuery: true,
-            //Groups
-            getChat: undefined,
-            getChatAdministrators: undefined,
-            getChatMembersCount: undefined,
-            getChatMember: undefined,
-            leaveChat: undefined,
-            setChatStickerSet: undefined,
-            deleteChatStickerSet: undefined,
-            sendChatAction: undefined,
-            kickChatMember: undefined,
-            unbanChatMember: undefined,
-            restrictChatMember: undefined,
-            promoteChatMember: undefined,
-            exportChatInviteLink: undefined,
-            setChatPhoto: undefined,
-            deleteChatPhoto: undefined,
-            setChatTitle: undefined,
-            setChatDescription: undefined,
-            pinChatMessage: undefined,
-            unpinChatMessage: undefined
-        };
+        this.messageListener = false;
+        this.list = [
+            container.get('/start')
+        ];
     }
 
-    commandLoader() {
-        const {bot, list, normalizationData} = this;
-        list.forEach((item, index) => {
+    run() {
+        const {bot, list} = this;
+        list.forEach((item) => {
             bot.onText(item.regex, (msg, match) => {
                 // Command execute
                 item.execute(msg, match);
             });
         })
+
+        this.bot.on('message', (msg) => {
+            if(this.messageListener) {
+                const nextMethod = this.messageListener.methodList[this.messageListener.counter];
+                this.messageListener.cmd[nextMethod](msg);
+                //this.messageListener.counter++;
+                // for (const key in messageListener) {
+                //
+                // }
+            }
+        });
+
+        this.bot.on('callback_query', (callback) => {
+            console.log(callback)
+        });
     }
+
+    //     this.methods = {
+    //         //Message
+    //         sendMessage: true,
+    //         sendPhoto: true,
+    //         sendAudio: true,
+    //         sendDocument: true,
+    //         sendSticker: true,
+    //         sendVideo: true,
+    //         sendVoice: true,
+    //         sendVideoNote: true,
+    //         sendStiker: true,
+    //         sendLocation: true,
+    //         sendVenue: true,
+    //         sendContact: true,
+    //         editMessageText: true,
+    //         editMessageCaption: true,
+    //         editMessageReplyMarkup: true,
+    //         getUserProfilePhotos: true,
+    //         editMessageLiveLocation: true,
+    //         stopMessageLiveLocation: true,
+    //         deleteMessage: true,
+    //         // Files
+    //         getFile: true,
+    //         getFileLink: true,
+    //         getFileStream: true,
+    //         downloadFile: true,
+    //         //Button answer
+    //         answerCallbackQuery: true,
+    //         //Groups
+    //         getChat: undefined,
+    //         getChatAdministrators: undefined,
+    //         getChatMembersCount: undefined,
+    //         getChatMember: undefined,
+    //         leaveChat: undefined,
+    //         setChatStickerSet: undefined,
+    //         deleteChatStickerSet: undefined,
+    //         sendChatAction: undefined,
+    //         kickChatMember: undefined,
+    //         unbanChatMember: undefined,
+    //         restrictChatMember: undefined,
+    //         promoteChatMember: undefined,
+    //         exportChatInviteLink: undefined,
+    //         setChatPhoto: undefined,
+    //         deleteChatPhoto: undefined,
+    //         setChatTitle: undefined,
+    //         setChatDescription: undefined,
+    //         pinChatMessage: undefined,
+    //         unpinChatMessage: undefined
+    //     };
+    // }
 
     // normalizationData(item) {
     //     if(item.action && item.chat_id && this.methods[item.action]) {

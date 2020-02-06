@@ -2,6 +2,10 @@ require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const BotHandler = require('../botHandler');
 const BotEmitter = require('../botEmitter');
+const BotTranslator = require('../botTranslator');
+//Commands
+const StartCommand = require('../commands/start');
+
 //DB
 const knex = require('knex');
 const UserTelegramRepository = require('../repository/UserTelegramRepository');
@@ -32,6 +36,16 @@ module.exports = (container) => {
     container.register('botEmitter', () => {
         return new BotEmitter();
     });
+
+    container.register('botTranslator', () => {
+       return new BotTranslator();
+    });
+
+    // Telegram Bot commands
+    container.register('/start', () => {
+        return new StartCommand(container);
+    });
+
 
     // DB Repositories
     const qb = container.get('knex');
