@@ -2,118 +2,59 @@ class BotHandler {
     constructor(container) {
         this.container = container;
         this.bot = container.get('bot');
-        this.messageListener = false;
-        this.list = [
-            container.get('/start')
+        this.messageListener = {};
+        this.cmdList = [
+            container.get('/start'),
+            container.get('/cabinet'),
+            container.get('/heal')
         ];
+
+        this.callbackList = [
+            container.get('&sync')
+        ]
     }
 
     run() {
-        const {bot, list} = this;
-        list.forEach((item) => {
+        const {bot, cmdList, callbackList} = this;
+        cmdList.forEach((item) => {
             bot.onText(item.regex, (msg, match) => {
                 // Command execute
                 item.execute(msg, match);
             });
-        })
-
-        this.bot.on('message', (msg) => {
-            if(this.messageListener) {
-                const nextMethod = this.messageListener.methodList[this.messageListener.counter];
-                this.messageListener.cmd[nextMethod](msg);
-                //this.messageListener.counter++;
-                // for (const key in messageListener) {
-                //
-                // }
+        });
+        // BUTTON CALLBACK SYSTEM
+        this.bot.on('callback_query', (callback) => {
+            for (let callbackObj of this.callbackList) {
+                if(callbackObj.regex.test(callback.data)) {
+                    // Callback execute
+                    const match = callback.data.match(callbackObj.regex);
+                    callbackObj.execute(callback, match);
+                    break;
+                }
             }
         });
 
-        this.bot.on('callback_query', (callback) => {
-            console.log(callback)
+        this.bot.on('message', (msg) => {
+            const messageObj = msg.message ? msg.message : msg;
+            const uid = messageObj.from.id;
+            // MESSAGE LISTENER SYSTEM
+            if(this.messageListener[uid]) {
+                // Add message object in message listener data
+                this.messageListener[uid]
+                    .data[this.messageListener[uid].counter] = msg;
+
+                // Call next method in message listener or delete message lisener data if next method is not set
+                const nextMethod = this.messageListener[uid]
+                    .methodList[this.messageListener[uid].counter];
+                if(nextMethod) {
+                    this.messageListener[uid].cmd[nextMethod](msg);
+                }
+                else {
+                    delete this.messageListener[uid];
+                }
+            }
         });
     }
-
-    //     this.methods = {
-    //         //Message
-    //         sendMessage: true,
-    //         sendPhoto: true,
-    //         sendAudio: true,
-    //         sendDocument: true,
-    //         sendSticker: true,
-    //         sendVideo: true,
-    //         sendVoice: true,
-    //         sendVideoNote: true,
-    //         sendStiker: true,
-    //         sendLocation: true,
-    //         sendVenue: true,
-    //         sendContact: true,
-    //         editMessageText: true,
-    //         editMessageCaption: true,
-    //         editMessageReplyMarkup: true,
-    //         getUserProfilePhotos: true,
-    //         editMessageLiveLocation: true,
-    //         stopMessageLiveLocation: true,
-    //         deleteMessage: true,
-    //         // Files
-    //         getFile: true,
-    //         getFileLink: true,
-    //         getFileStream: true,
-    //         downloadFile: true,
-    //         //Button answer
-    //         answerCallbackQuery: true,
-    //         //Groups
-    //         getChat: undefined,
-    //         getChatAdministrators: undefined,
-    //         getChatMembersCount: undefined,
-    //         getChatMember: undefined,
-    //         leaveChat: undefined,
-    //         setChatStickerSet: undefined,
-    //         deleteChatStickerSet: undefined,
-    //         sendChatAction: undefined,
-    //         kickChatMember: undefined,
-    //         unbanChatMember: undefined,
-    //         restrictChatMember: undefined,
-    //         promoteChatMember: undefined,
-    //         exportChatInviteLink: undefined,
-    //         setChatPhoto: undefined,
-    //         deleteChatPhoto: undefined,
-    //         setChatTitle: undefined,
-    //         setChatDescription: undefined,
-    //         pinChatMessage: undefined,
-    //         unpinChatMessage: undefined
-    //     };
-    // }
-
-    // normalizationData(item) {
-    //     if(item.action && item.chat_id && this.methods[item.action]) {
-    //         const {
-    //             action,
-    //             chat_id,
-    //             text = null,
-    //             file = null,
-    //             parse_mode = 'HTML',
-    //             disable_web_page_preview = false,
-    //             disable_notification = false,
-    //             reply_to_message_id = null,
-    //             reply_markup = null
-    //         } = item
-    //
-    //         return {
-    //             action,
-    //             chat_id,
-    //             text,
-    //             file,
-    //             parse_mode,
-    //             disable_web_page_preview,
-    //             disable_notification,
-    //             reply_to_message_id,
-    //             reply_markup
-    //         };
-    //     }
-    //     else {
-    //         throw new Error('Method or chat ID doesn`t set');
-    //     }
-    // }
 }
 
 module.exports = BotHandler;

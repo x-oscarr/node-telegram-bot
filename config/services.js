@@ -5,6 +5,11 @@ const BotEmitter = require('../botEmitter');
 const BotTranslator = require('../botTranslator');
 //Commands
 const StartCommand = require('../commands/start');
+const CabinetCommand = require('../commands/cabinet');
+const HealCommand = require('../commands/heal');
+//Callbacks
+const SyncCallback = require('../callbacks/syncCallback');
+
 
 //DB
 const knex = require('knex');
@@ -44,6 +49,19 @@ module.exports = (container) => {
     // Telegram Bot commands
     container.register('/start', () => {
         return new StartCommand(container);
+    });
+
+    container.register('/cabinet', () => {
+        return new CabinetCommand(container);
+    });
+
+    container.register('/heal', () => {
+        return new HealCommand(container);
+    });
+
+    // Telegram Bot callbacks
+    container.register('&sync', () => {
+        return new SyncCallback(container)
     });
 
 

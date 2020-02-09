@@ -5,6 +5,9 @@ class BaseCommand {
     }
 
     action(action, data) {
+        if(!data.chat_id && data.msg) {
+            data.chat_id = msg.chat.id;
+        }
         this.events.emit(action, data);
     }
 }

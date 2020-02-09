@@ -11,8 +11,20 @@ class BotTranslator {
         this.defLocale = 'uk';
         this.transData = { uk, ru, en }
     }
-    get(key, locale = this.defLocale) {
-        return this.transData[locale][key]
+    get(key, locale = this.defLocale, vars = null) {
+        // Locale
+        if(typeof locale === 'object' && locale.from) {
+            locale = locale.from.language_code;
+        }
+        let textOutput = this.transData[locale][key] ? this.transData[locale][key] : this.transData[this.defLocale][key];
+        // Variables in translation text
+        if(vars && typeof vars === 'object') {
+            for(let key in vars) {
+                textOutput = textOutput.replace(key, vars[key]);
+            }
+        }
+
+        return textOutput;
     }
 }
 
