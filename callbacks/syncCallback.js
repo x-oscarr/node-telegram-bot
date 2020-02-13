@@ -4,6 +4,7 @@ class SyncCallback extends baseCallback{
     constructor(container) {
         super(container);
         this.regex = /sync/;
+        this.botRedis = container.get('botRedis');
         this.userRepository = container.get('userRepository');
     }
 
@@ -30,6 +31,9 @@ class SyncCallback extends baseCallback{
             // Search user in database
             const user = await this.userRepository.findOneBy({'email': email});
             if(user) {
+                this.botRedis.publish('syncTelegram');
+                this.botRedis.publish('Hello from bot');
+
                 let mailLink;
                 switch (email.split('@', 2)[1]) {
                     case 'gmail.com': mailLink = 'https://mail.google.com'; break;
@@ -43,13 +47,11 @@ class SyncCallback extends baseCallback{
                 this.action('sendMessage', {
                     msg,
                     text: this.trans.get('command_start_send_message', msg, {'%email%': email}),
-                    reply_markup: keyboard => {
+                    reply_markup: () => {
                         if(mailLink) {
-                            const keyboard = {
-                                inline_keyboard: [
-                                    [{text: this.trans.get('button_email_goto'), url: mailLink}],
-                                ]
-                            };
+                            return  { inline_keyboard: [
+                                [{text: this.trans.get('button_email_goto'), url: mailLink}],
+                            ]};
                         }
                     }
                 });

@@ -2,6 +2,7 @@ class BotHandler {
     constructor(container) {
         this.container = container;
         this.bot = container.get('bot');
+        this.botRedis = container.get('botRedis');
         this.messageListener = {};
         this.cmdList = [
             container.get('/start'),
@@ -54,6 +55,8 @@ class BotHandler {
                 }
             }
         });
+
+        this.botRedis.subscribe();
     }
 }
 

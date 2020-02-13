@@ -3,15 +3,16 @@ const TelegramBot = require('node-telegram-bot-api');
 const BotHandler = require('../botHandler');
 const BotEmitter = require('../botEmitter');
 const BotTranslator = require('../botTranslator');
+const BotRedis = require('../botRedis');
 //Commands
-const StartCommand = require('../commands/start');
-const CabinetCommand = require('../commands/cabinet');
-const HealCommand = require('../commands/heal');
+const StartCommand = require('../commands/startCommand');
+const CabinetCommand = require('../commands/cabinetCommand');
+const HealCommand = require('../commands/healCommand');
 //Callbacks
 const SyncCallback = require('../callbacks/syncCallback');
 
-
-//DB
+//DB AND REDIS
+const redis = require('redis');
 const knex = require('knex');
 const UserTelegramRepository = require('../repository/UserTelegramRepository');
 const UserRepository = require('../repository/UserRepository');
@@ -32,6 +33,15 @@ module.exports = (container) => {
     container.register('bot', () => {
         const token = process.env.TELEGRAM_BOT_TOKEN;
         return new TelegramBot(token, {polling: true});
+    });
+
+    container.register('botRedis', () => {
+       return new BotRedis(redis, {
+           host: process.env.REDIS_HOST,
+           port: process.env.REDIS_PORT,
+           subscriber: process.env.REDIS_SUB,
+           publisher: process.env.REDIS_PUB
+       })
     });
 
     container.register('botHandler', () => {

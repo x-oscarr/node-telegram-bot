@@ -9,8 +9,6 @@ class HealCommand extends BaseCommand {
     }
 
     execute(msg, match) {
-        // const users = this.userRepository.findAll();
-        // const userslist = await users;
         this.action('sendPhoto', {
             chat_id: msg.chat.id,
             photo: 'https://dev.root7.ru/vasyan.jpg'
