@@ -1,4 +1,12 @@
 require('dotenv').config();
+
+//DB AND REDIS
+const RedisStreams = require("../redisStreams");
+const redisMessageTemplate = require("./redisMessageTemplate");
+const knex = require('knex');
+const UserTelegramRepository = require('../repository/UserTelegramRepository');
+const UserRepository = require('../repository/UserRepository');
+
 const TelegramBot = require('node-telegram-bot-api');
 const BotHandler = require('../botHandler');
 const BotEmitter = require('../botEmitter');
@@ -10,12 +18,6 @@ const CabinetCommand = require('../commands/cabinetCommand');
 const HealCommand = require('../commands/healCommand');
 //Callbacks
 const SyncCallback = require('../callbacks/syncCallback');
-
-//DB AND REDIS
-const redis = require('redis');
-const knex = require('knex');
-const UserTelegramRepository = require('../repository/UserTelegramRepository');
-const UserRepository = require('../repository/UserRepository');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -36,11 +38,11 @@ module.exports = (container) => {
     });
 
     container.register('botRedis', () => {
-       return new BotRedis(redis, {
+       return new BotRedis(RedisStreams, {
            host: process.env.REDIS_HOST,
            port: process.env.REDIS_PORT,
-           subscriber: process.env.REDIS_SUB,
-           publisher: process.env.REDIS_PUB
+           template: redisMessageTemplate,
+           events: container.get('botEmitter')
        })
     });
 

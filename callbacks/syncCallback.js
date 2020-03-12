@@ -4,7 +4,7 @@ class SyncCallback extends baseCallback{
     constructor(container) {
         super(container);
         this.regex = /sync/;
-        this.botRedis = container.get('botRedis');
+        this.redis = container.get('botRedis');
         this.userRepository = container.get('userRepository');
     }
 
@@ -26,13 +26,17 @@ class SyncCallback extends baseCallback{
         const emailRegexp = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,8}$/;
         const email = msg.text;
         if(emailRegexp.test(email)) {
-            this.action('stopMessageListener', msg);
-
             // Search user in database
             const user = await this.userRepository.findOneBy({'email': email});
             if(user) {
-                this.botRedis.publish('syncTelegram');
-                this.botRedis.publish('Hello from bot');
+                this.action('stopMessageListener', msg);
+
+                this.redis.add({
+                    type: 'syncEmail',
+                    number: user.id,
+                    telegramUser: msg.from,
+                    telegramChat: msg.chat
+                }, process.env.REDIS_PUB);
 
                 let mailLink;
                 switch (email.split('@', 2)[1]) {

@@ -1,20 +1,26 @@
 class BotRedis {
-    constructor(redis, redis_data) {
-        const {host, port, subscriber, publisher} = redis_data;
-        this.pubChannel = publisher;
-        this.publisher = redis.createClient({host: host, port});
-        this.subscriber = redis.createClient({host: host, port});
-        this.subscriber.subscribe(subscriber);
+    constructor(RedisStreams, data) {
+        const {host, port, template, events} = data;
+        this.streams = new RedisStreams({host, port});
+        this.messageTemplate = template;
+        this.events = events;
     }
 
-    publish(text) {
-        this.publisher.publish(this.pubChannel, text);
+    add(data, key = process.env.REDIS_PUB) {
+        this.streams.add(key,
+            this.messageTemplate.build(data)
+        );
     }
 
-    subscribe() {
-        this.subscriber.on("message", function(channel, message) {
-            console.log(`<${channel}>: ${message}`);
-        });
+    subscribe(key = process.env.REDIS_SUB) {
+        setTimeout(() => {
+            this.streams.subscribe("subTelegramBot", '$', ([[_,messages]]) => {
+                console.log(messages);
+                const data = JSON.parse(messages.body);
+                const {event, ...eventData} = data;
+                this.events(event, eventData);
+            });
+        }, 100);
     }
 }
 

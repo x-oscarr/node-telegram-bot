@@ -27,7 +27,7 @@ botEmitter.on('nextMessageListener', (data) => {
     const messageObj = msg.message ? msg.message : msg;
     const uid = messageObj.chat.id;
     if(botHandler.messageListener[uid]) {
-        currentCounter = botHandler.messageListener[uid].counter;
+        let currentCounter = botHandler.messageListener[uid].counter;
         const newCounter = next ? next : ++currentCounter;
         botHandler.messageListener[uid].counter = newCounter;
     }

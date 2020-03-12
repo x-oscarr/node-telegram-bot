@@ -55,8 +55,7 @@ class BotHandler {
                 }
             }
         });
-
-        this.botRedis.subscribe();
+        this.botRedis.subscribe(process.env.REDIS_SUB);
     }
 }
 
