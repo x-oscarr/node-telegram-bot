@@ -22,8 +22,32 @@ function readFile(file, options) {
     });
 }
 
+function toSnakeCase(data) {
+    if(typeof data === "string") {
+        return stringToSnakeCase(data);
+    }
+
+    if(typeof data === "object") {
+        let newObject = {};
+        for (let item in data) {
+            let newItem = stringToSnakeCase(item);
+            newObject[newItem] = data[item];
+        }
+        return newObject;
+    }
+
+    function stringToSnakeCase(string) {
+        return string.replace(/([A-Z])/g, ($1) => {
+            if(string.indexOf($1) === 0) return $1.toLowerCase();
+            return `_${$1}`.toLowerCase()
+        });
+    }
+
+    return data;
+}
 
 module.exports = {
     readDir,
-    readFile
+    readFile,
+    toSnakeCase
 };

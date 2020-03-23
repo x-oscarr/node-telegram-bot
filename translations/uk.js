@@ -10,5 +10,13 @@ module.exports = {
 
   button_start_yes: 'Так, у мене є профіль на MoniHeal',
   button_start_no: 'Ні, я хочу зареєструватися',
-  button_email_goto: '✉ Перейти на пошту'
+  button_email_goto: '✉ Перейти на пошту',
+  button_back: 'Назад',
+  button_close: 'Закрити',
+  button_cabinet_settings: 'Налаштування',
+  button_cabinet_change_role_client: 'Режим клієнта',
+  button_cabinet_change_role_expert: 'Режим експерта',
+  button_cabinet_today_booked_services: 'Послуги сьогодні [%count%]',
+  button_cabinet_active_booked_services: 'Заброньовані послуги [%count%]',
+  button_cabinet_services: 'Послуги [%count%]',
 };

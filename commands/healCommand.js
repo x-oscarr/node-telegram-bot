@@ -5,7 +5,7 @@ class HealCommand extends BaseCommand {
         super(container);
         this.regex = /\/vasyan\s?(.+)?/;
         this.name = '/heal';
-        this.desctiption = 'Oh my Jesus';
+        this.description = 'Oh my Jesus';
     }
 
     execute(msg, match) {

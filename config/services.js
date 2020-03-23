@@ -6,6 +6,8 @@ const redisMessageTemplate = require("./redisMessageTemplate");
 const knex = require('knex');
 const UserTelegramRepository = require('../repository/UserTelegramRepository');
 const UserRepository = require('../repository/UserRepository');
+const ServiceRepository = require('../repository/ServiceRepository');
+const BookServiceRepository = require('../repository/BookServiceRepository');
 
 const TelegramBot = require('node-telegram-bot-api');
 const BotHandler = require('../botHandler');
@@ -18,6 +20,9 @@ const CabinetCommand = require('../commands/cabinetCommand');
 const HealCommand = require('../commands/healCommand');
 //Callbacks
 const SyncCallback = require('../callbacks/syncCallback');
+const ServicesCallback = require('../callbacks/servicesCallback');
+const CabinetCallback = require('../callbacks/cabinetCallback');
+const ChangeRoleCallback = require('../callbacks/changeRoleCallback');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -37,21 +42,12 @@ module.exports = (container) => {
         return new TelegramBot(token, {polling: true});
     });
 
-    container.register('botRedis', () => {
-       return new BotRedis(RedisStreams, {
-           host: process.env.REDIS_HOST,
-           port: process.env.REDIS_PORT,
-           template: redisMessageTemplate,
-           events: container.get('botEmitter')
-       })
+    container.register('botEmitter', () => {
+        return require('./events')(new BotEmitter());
     });
 
     container.register('botHandler', () => {
         return new BotHandler(container);
-    });
-
-    container.register('botEmitter', () => {
-        return new BotEmitter();
     });
 
     container.register('botTranslator', () => {
@@ -73,7 +69,16 @@ module.exports = (container) => {
 
     // Telegram Bot callbacks
     container.register('&sync', () => {
-        return new SyncCallback(container)
+        return new SyncCallback(container);
+    });
+    container.register('&services', () => {
+        return new ServicesCallback(container);
+    });
+    container.register('&cabinet', () => {
+        return new CabinetCallback(container);
+    });
+    container.register('&changeRole', () => {
+        return new ChangeRoleCallback(container);
     });
 
 
@@ -86,5 +91,22 @@ module.exports = (container) => {
 
     container.register('userTelegramRepository', () => {
         return new UserTelegramRepository(qb);
+    });
+
+    container.register('bookServiceRepository', () => {
+        return new BookServiceRepository(qb);
+    });
+
+    container.register('serviceRepository', () => {
+        return new ServiceRepository(qb);
+    });
+
+    container.register('botRedis', () => {
+        return new BotRedis(RedisStreams, {
+            host: process.env.REDIS_HOST,
+            port: process.env.REDIS_PORT,
+            template: redisMessageTemplate,
+            events: container.get('botEmitter'),
+        })
     });
 };

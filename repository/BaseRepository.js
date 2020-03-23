@@ -4,8 +4,8 @@ class BaseRepository {
         this.table = null;
     }
 
-    findQuery(criteria, options = null) {
-        let query = this.qb.table(this.table);
+    findQuery(criteria, options = null, table = this.table) {
+        let query = this.qb.table(table);
 
         // criteria
         let index = 0;
@@ -25,15 +25,15 @@ class BaseRepository {
                     query = query[key](options[key][0], options[key][1]);
                 }
                 else if(key === 'limit' || key === 'offset') {
-                    query = query[key](options[key])
+                    query = query[key](options[key]);
                 }
             }
         }
         return query;
     }
 
-    async find(id) {
-        return this.qb.table(this.table).where('id', id).first();
+    async find(id, table = this.table) {
+        return this.qb.table(table).where('id', id).first();
     }
 
     async findBy(criteria, options) {

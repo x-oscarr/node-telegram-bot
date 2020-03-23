@@ -1,3 +1,5 @@
+const helpers = require('./helpers');
+
 class BotRedis {
     constructor(RedisStreams, data) {
         const {host, port, template, events} = data;
@@ -14,11 +16,10 @@ class BotRedis {
 
     subscribe(key = process.env.REDIS_SUB) {
         setTimeout(() => {
-            this.streams.subscribe("subTelegramBot", '$', ([[_,messages]]) => {
-                console.log(messages);
+            this.streams.subscribe(key, '$', ([[_,messages]]) => {
                 const data = JSON.parse(messages.body);
-                const {event, ...eventData} = data;
-                this.events(event, eventData);
+                const {event, ...eventData} = helpers.toSnakeCase(data);
+                this.events.emit(event, eventData);
             });
         }, 100);
     }

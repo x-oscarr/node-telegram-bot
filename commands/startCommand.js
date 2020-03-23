@@ -5,7 +5,7 @@ class StartCommand extends BaseCommand {
         super(container);
         this.regex = /\/start\s?(.+)?/;
         this.name = '/start';
-        this.desctiption = 'Start command';
+        this.description = 'Start command';
     }
 
     async execute(msg, match) {

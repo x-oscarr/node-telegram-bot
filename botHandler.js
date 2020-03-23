@@ -11,7 +11,9 @@ class BotHandler {
         ];
 
         this.callbackList = [
-            container.get('&sync')
+            container.get('&sync'),
+            container.get('&changeRole'),
+            container.get('&services')
         ]
     }
 
