@@ -18,11 +18,9 @@ class ServiceRepository extends BaseRepository{
         if (object.isActive) {
             query.andWhere({is_active: object.isActive});
         }
-        if(object.offset) {
-            query.offset(object.offset);
-        }
-        if(object.limit) {
-            query.limit(object.limit);
+        if(object.page) {
+            query.offset((object.page - 1) * process.env.PAGINATION_LIMIT);
+            query.limit(process.env.PAGINATION_LIMIT);
         }
         if(object.isCount) {
             query.count({count: '*'});

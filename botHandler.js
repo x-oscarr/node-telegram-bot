@@ -7,13 +7,17 @@ class BotHandler {
         this.cmdList = [
             container.get('/start'),
             container.get('/cabinet'),
-            container.get('/heal')
+            container.get('/heal'),
+            container.get('/settings')
         ];
 
         this.callbackList = [
-            container.get('&sync'),
+            container.get('&cabinet'),
+            container.get('&close'),
             container.get('&changeRole'),
-            container.get('&services')
+            container.get('&services'),
+            container.get('&settings'),
+            container.get('&sync')
         ]
     }
 

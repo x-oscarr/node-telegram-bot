@@ -19,19 +19,16 @@ class CabinetCommand extends BaseCommand{
     async init(msg, typeAction, data) {
         const userTelegram = await this.userTelegramRepository.getTelegramUser(msg.from.id);
         const userData = await this.getUserData(userTelegram);
-        const altRole = userTelegram.role === 'client' ? 'expert' : 'client';
+        const user = await this.userRepository.getUserForCabinet(msg.from.id);
         this.action(typeAction, {
             ...data,
             chat_id: msg.chat.id,
-            text: 'NA PAPEI',
-            reply_markup: { inline_keyboard: [
-                ...this.getKeyboard(msg, userTelegram, userData),
-                [
-                    {text: this.trans.get(`button_cabinet_change_role_${altRole}`, msg), callback_data: `change_role ${altRole}`},
-                    {text: this.trans.get('button_cabinet_settings', msg), callback_data: 'settings'},
-                    {text: this.trans.get('button_close', msg), callback_data: 'close'}
-                ]
-            ]}
+            text: this.trans.get('command_cabinet_title', msg, {
+                '%role%': this.roleName(msg, user),
+                '%fullName%': user.full_name
+            }),
+            parse_mode: 'HTML',
+            reply_markup: this.keyboardBuilder(msg, userTelegram, userData, user)
         });
     }
 
@@ -62,27 +59,65 @@ class CabinetCommand extends BaseCommand{
         return data
     }
 
-    getKeyboard(msg, userTelegram, userData) {
+    isExpert(user) {
+        const userRoles = user.roles.split(',');
+        if (
+            userRoles.indexOf('ROLE_EXPERT') > -1 ||
+            userRoles.indexOf('ROLE_CONSULTANT') > -1 ||
+            userRoles.indexOf('ROLE_MANAGER') > -1
+        ) return true;
+        return false;
+    }
+
+    roleName(msg, user) {
+        const isExpert = this.isExpert(user);
+        const userRoles = user.roles.split(',');
+        if(isExpert) {
+            if (userRoles.indexOf('ROLE_CONSULTANT') > -1) {
+                return this.trans.get('role_consultant', msg);
+            }
+            else if (userRoles.indexOf('ROLE_MANAGER') > -1) {
+                return this.trans.get('role_manager', msg);
+            }
+            return this.trans.get('role_expert', msg);
+        }
+        return this.trans.get('role_client', msg);
+    }
+
+    keyboardBuilder(msg, userTelegram, userData, user) {
+        const altRole = userTelegram.role === 'client' ? 'expert' : 'client';
         let keyboard = [
             [{
                 text: this.trans.get('button_cabinet_today_booked_services', msg, {'%count%': userData.todayBookService}),
-                callback_data: `services todayBookedServices ${userTelegram.user_id}`
+                callback_data: `services todayBookedServices`
             }],
             [{
                 text: this.trans.get('button_cabinet_active_booked_services', msg, {'%count%': userData.activeBookService}),
-                callback_data: `services activeBookedServices ${userTelegram.user_id}`
+                callback_data: `services activeBookedServices`
             }]
+        ];
+
+        let tools = [
+            [
+                {text: this.trans.get('button_cabinet_settings', msg), callback_data: 'settings'},
+                {text: this.trans.get('button_close', msg), callback_data: 'close'}
+            ]
         ];
 
         if(userTelegram.role === 'expert') {
             keyboard.push([{
                 text: this.trans.get('button_cabinet_services', msg, {'%count%': userData.services}),
-                callback_data: `services services ${userTelegram.user_id}`
+                callback_data: `services services`
             }]);
 
         }
 
-        return keyboard;
+        if(this.isExpert(user)) {
+            tools[0].unshift({
+                text: this.trans.get(`button_cabinet_change_role_${altRole}`, msg), callback_data: `change_role ${altRole}`
+            });
+        }
+        return { inline_keyboard: [...keyboard, ...tools] };
     }
 }
 

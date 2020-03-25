@@ -15,14 +15,17 @@ const BotEmitter = require('../botEmitter');
 const BotTranslator = require('../botTranslator');
 const BotRedis = require('../botRedis');
 //Commands
-const StartCommand = require('../commands/startCommand');
 const CabinetCommand = require('../commands/cabinetCommand');
 const HealCommand = require('../commands/healCommand');
+const StartCommand = require('../commands/startCommand');
+const SettingsCommand = require('../commands/settingsCommand');
 //Callbacks
-const SyncCallback = require('../callbacks/syncCallback');
-const ServicesCallback = require('../callbacks/servicesCallback');
 const CabinetCallback = require('../callbacks/cabinetCallback');
 const ChangeRoleCallback = require('../callbacks/changeRoleCallback');
+const CloseCallback = require('../callbacks/closeCallback');
+const ServicesCallback = require('../callbacks/servicesCallback');
+const SettingsCallback = require('../callbacks/settingsCallback');
+const SyncCallback = require('../callbacks/syncCallback');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -67,9 +70,16 @@ module.exports = (container) => {
         return new HealCommand(container);
     });
 
+    container.register('/settings', () => {
+        return new SettingsCommand(container);
+    });
+
     // Telegram Bot callbacks
     container.register('&sync', () => {
         return new SyncCallback(container);
+    });
+    container.register('&settings', () => {
+        return new SettingsCallback(container);
     });
     container.register('&services', () => {
         return new ServicesCallback(container);
@@ -79,6 +89,9 @@ module.exports = (container) => {
     });
     container.register('&changeRole', () => {
         return new ChangeRoleCallback(container);
+    });
+    container.register('&close', () => {
+        return new CloseCallback(container);
     });
 
 

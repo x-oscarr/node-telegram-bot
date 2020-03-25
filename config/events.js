@@ -82,5 +82,10 @@ module.exports = function (botEmitter) {
         bot.answerCallbackQuery(callbackQueryId, options);
     });
 
+    botEmitter.on('deleteMessage', (data) => {
+       const {chat_id, message_id} = data;
+       bot.deleteMessage(chat_id, message_id);
+    });
+
     return botEmitter;
 };
