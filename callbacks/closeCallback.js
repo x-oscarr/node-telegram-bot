@@ -3,7 +3,7 @@ baseCallback = require('./baseCallback');
 class CloseCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /close\s?(.+)?/;
+        this.regex = /^close\s?(.+)?/;
     }
 
     async execute(msg) {

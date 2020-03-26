@@ -26,6 +26,7 @@ const CloseCallback = require('../callbacks/closeCallback');
 const ServicesCallback = require('../callbacks/servicesCallback');
 const SettingsCallback = require('../callbacks/settingsCallback');
 const SyncCallback = require('../callbacks/syncCallback');
+const UnsyncCallback = require('../callbacks/unsyncCallback');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -77,6 +78,9 @@ module.exports = (container) => {
     // Telegram Bot callbacks
     container.register('&sync', () => {
         return new SyncCallback(container);
+    });
+    container.register('&unsync', () => {
+        return new UnsyncCallback(container);
     });
     container.register('&settings', () => {
         return new SettingsCallback(container);

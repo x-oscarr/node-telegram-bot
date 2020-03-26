@@ -17,7 +17,8 @@ class BotHandler {
             container.get('&changeRole'),
             container.get('&services'),
             container.get('&settings'),
-            container.get('&sync')
+            container.get('&sync'),
+            container.get('&unsync')
         ]
     }
 

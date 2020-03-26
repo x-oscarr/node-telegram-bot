@@ -3,7 +3,7 @@ baseCallback = require('./baseCallback');
 class SyncCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /change_role\s?(.+)?/;
+        this.regex = /^change_role\s?(.+)?/;
         this.userTelegramRepository = container.get('userTelegramRepository');
         this.cabinetCallback = container.get('&cabinet');
     }

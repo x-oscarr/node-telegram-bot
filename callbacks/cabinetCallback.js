@@ -3,7 +3,7 @@ baseCallback = require('./baseCallback');
 class CabinetCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /cabinet\s?(.+)?/;
+        this.regex = /^cabinet\s?([a-zA-Z0-9_-]+)?/;
         this.cabinetCommand = container.get('/cabinet');
     }
 
@@ -16,8 +16,6 @@ class CabinetCallback extends baseCallback{
             message_id: msg.message_id
         });
     }
-
-
 }
 
 module.exports = CabinetCallback;

@@ -9,8 +9,8 @@ class SettingsCommand extends BaseCommand {
         this.userTelegramRepository = container.get('userTelegramRepository');
     }
 
-    async execute(msg, match) {
-        await this.init('sendMessage', msg);
+    async execute(msg) {
+        await this.init(msg, 'sendMessage');
     }
 
     async init(msg, action, data) {
@@ -49,9 +49,15 @@ class SettingsCommand extends BaseCommand {
         if(userTelegram.user_id) {
             keyboard.push([{
                 text: this.trans.get('button_settings_unsynchronization', msg),
-                callback_data: 'settings unsynchronization'
+                callback_data: 'unsync'
             }])
         }
+
+        keyboard.push([
+            {text: this.trans.get('button_back', msg), callback_data: 'cabinet'},
+            {text: this.trans.get('button_close', msg), callback_data: 'close'}
+        ]);
+
         return keyboard;
     }
 }

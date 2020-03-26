@@ -3,23 +3,30 @@ baseCallback = require('./baseCallback');
 class SyncCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /sync/;
+        this.regex = /^sync\s?(resync)?/;
         this.redis = container.get('botRedis');
         this.userRepository = container.get('userRepository');
+        this.userTelegramRepository = container.get('userTelegramRepository');
     }
 
-    execute(msg, match) {
+    async execute(msg, match) {
+        const type = match[1];
         this.action('answerCallbackQuery', {callbackQueryId: msg.id});
-        this.action('editMessageText', {
-            msg,
-            text: this.trans.get('command_start_synchronisation', msg)
-        });
-
-        this.action('startMessageListener', {
-            msg,
-            cmd: this,
-            1: 'emailSync'
-        });
+        const userTelegram = this.userTelegramRepository.getTelegramUser(msg.from);
+        if((userTelegram && userTelegram.user_id) || type === 'resync') {
+            this.action('editMessageText', {
+                msg,
+                text: this.trans.get('command_start_synchronisation', msg)
+            });
+            this.action('startMessageListener', {
+                msg,
+                cmd: this,
+                1: 'emailSync'
+            });
+        }
+        else {
+            await this.userIsAlreadySync(msg);
+        }
     }
 
     async emailSync(msg) {
@@ -71,6 +78,17 @@ class SyncCallback extends baseCallback{
         else  {
             this.action('sendMessage', {msg, text: this.trans.get('command_start_is_not_email', msg)});
         }
+    }
+
+    async userIsAlreadySync(msg) {
+        this.action('editMessageText', {
+            msg,
+            text: this.trans.get('command_start_user_is_already_sync', msg),
+            reply_markup: {inline_keyboard: [
+                [{text: this.trans.get('button_start_resync_yes', msg), callback_data:'sync resync'}],
+                [{text: this.trans.get('button_start_resync_no', msg), callback_data: 'close'}]
+            ]}
+        });
     }
 }
 

@@ -18,6 +18,13 @@ class CabinetCommand extends BaseCommand{
 
     async init(msg, typeAction, data) {
         const userTelegram = await this.userTelegramRepository.getTelegramUser(msg.from.id);
+        if(!userTelegram.user_id) {
+            return this.action(typeAction, {
+                ...data,
+                chat_id: msg.chat.id,
+                text: this.trans.get('command_you_dont_sync', msg),
+            });
+        }
         const userData = await this.getUserData(userTelegram);
         const user = await this.userRepository.getUserForCabinet(msg.from.id);
         this.action(typeAction, {

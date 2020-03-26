@@ -3,7 +3,7 @@ baseCallback = require('./baseCallback');
 class SyncCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /services\s([a-zA-Z]+)\s?([0-9]+)?/;
+        this.regex = /^services\s?([a-zA-Z]+)?\s?([0-9]+)?/;
         this.redis = container.get('botRedis');
         this.userRepository = container.get('userRepository');
         this.userTelegramRepository = container.get('userTelegramRepository');
