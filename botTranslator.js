@@ -16,6 +16,7 @@ class BotTranslator {
         if(typeof locale === 'object' && locale.from) {
             locale = locale.from.language_code;
         }
+        else locale = this.defLocale;
         let textOutput = this.transData[locale][key] ? this.transData[locale][key] : this.transData[this.defLocale][key];
         // Variables in translation text
         if(vars && typeof vars === 'object') {

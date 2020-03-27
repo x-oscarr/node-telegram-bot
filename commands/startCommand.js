@@ -19,8 +19,8 @@ class StartCommand extends BaseCommand {
             text: this.trans.get('command_start_welcome', msg),
             reply_markup: {
                 inline_keyboard: [
-                    [{text: this.trans.get('button_start_yes'), callback_data: 'sync'}],
-                    [{text: this.trans.get('button_start_no'), url: 'https://moi.health'}]
+                    [{text: this.trans.get('button_start_yes', msg), callback_data: 'sync'}],
+                    [{text: this.trans.get('button_start_no', msg), url: 'https://moi.health'}]
                 ]
             }
         });

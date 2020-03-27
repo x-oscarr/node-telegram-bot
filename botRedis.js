@@ -9,6 +9,9 @@ class BotRedis {
     }
 
     add(data, key = process.env.REDIS_PUB) {
+        if(process.env.REDIS_DEBUG === 'true') {
+            console.log('PUB:', data);
+        }
         this.streams.add(key,
             this.messageTemplate.build(data)
         );
@@ -17,6 +20,9 @@ class BotRedis {
     subscribe(key = process.env.REDIS_SUB) {
         setTimeout(() => {
             this.streams.subscribe(key, '$', ([[_,messages]]) => {
+                if(process.env.REDIS_DEBUG === 'true') {
+                    console.log('SUB:', messages);
+                }
                 const data = JSON.parse(messages.body);
                 const {event, ...eventData} = helpers.toSnakeCase(data);
                 this.events.emit(event, eventData);
