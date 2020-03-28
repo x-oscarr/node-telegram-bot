@@ -35,7 +35,7 @@ class BookServiceCallback extends baseCallback{
                 await this.bookServiceRepository.setStatusBookService(bookServiceId, 'denied')
             }
             else {
-                bookedServiceResult = this.trans.get('error_security', msg);
+                bookedServiceResult = this.trans.get('error_access', msg);
                 callbackAnswer = null;
             }
 
