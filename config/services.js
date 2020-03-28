@@ -20,6 +20,7 @@ const HealCommand = require('../commands/healCommand');
 const StartCommand = require('../commands/startCommand');
 const SettingsCommand = require('../commands/settingsCommand');
 //Callbacks
+const BookServiceCallback = require('../callbacks/bookServiceCallback');
 const CabinetCallback = require('../callbacks/cabinetCallback');
 const ChangeRoleCallback = require('../callbacks/changeRoleCallback');
 const CloseCallback = require('../callbacks/closeCallback');
@@ -76,6 +77,9 @@ module.exports = (container) => {
     });
 
     // Telegram Bot callbacks
+    container.register('&bookService', () => {
+       return new BookServiceCallback(container);
+    });
     container.register('&sync', () => {
         return new SyncCallback(container);
     });

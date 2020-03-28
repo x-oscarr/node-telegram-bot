@@ -12,6 +12,7 @@ class BotHandler {
         ];
 
         this.callbackList = [
+            container.get('&bookService'),
             container.get('&cabinet'),
             container.get('&close'),
             container.get('&changeRole'),

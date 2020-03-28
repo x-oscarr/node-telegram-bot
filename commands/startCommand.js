@@ -20,7 +20,7 @@ class StartCommand extends BaseCommand {
             reply_markup: {
                 inline_keyboard: [
                     [{text: this.trans.get('button_start_yes', msg), callback_data: 'sync'}],
-                    [{text: this.trans.get('button_start_no', msg), url: 'https://moi.health'}]
+                    [{text: this.trans.get('button_start_no', msg), url: process.env.DOMAIN}]
                 ]
             }
         });

@@ -50,5 +50,11 @@ module.exports = {
   role_consultant: 'Семейный врач',
   role_manager: 'Страховой агент',
   settings_on: 'Включено',
-  settings_off: 'Выключено'
+  settings_off: 'Выключено',
+  booked_service_accept: '✅ Бронирование услуги <b>успешно</b> подтверждено на %date% для пользователя: %client%',
+  booked_service_denied: '❌ Бронирование услуги <b>отменено</b> на %date% для пользователя: %client%',
+  callback_answer_booked_service_accept: 'Бронирование подтверждено',
+  callback_answer_booked_service_denied: 'Бронирование отменено',
+  view_on_the_site: 'Посмотреть на сайте',
+  error_access: 'Ошибка доступа'
 };

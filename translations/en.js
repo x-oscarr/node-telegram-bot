@@ -50,5 +50,11 @@ module.exports = {
     role_consultant: 'Family doctor',
     role_manager: 'Insurance agent',
     settings_on: 'Enabled',
-    settings_off: 'Off'
+    settings_off: 'Off',
+    booked_service_accept: '✅ Booked service <b>successfully verified</b> at %date% for user: %client%',
+    booked_service_denied: '❌ Booked service <b>rejected</b> at %date%for user: %client%',
+    callback_answer_booked_service_accept: 'Booking confirmed',
+    callback_answer_booked_service_denied: 'Booking rejected',
+    view_on_the_site: 'View on website',
+    error_access: 'Access error'
 };

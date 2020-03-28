@@ -24,8 +24,8 @@ class BotRedis {
                     console.log('SUB:', messages);
                 }
                 const data = JSON.parse(messages.body);
-                const {event, ...eventData} = helpers.toSnakeCase(data);
-                this.events.emit(event, eventData);
+                const eventData = helpers.toSnakeCase(data);
+                this.events.emit(eventData.event, eventData.data);
             });
         }, 100);
     }

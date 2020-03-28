@@ -50,5 +50,11 @@ module.exports = {
   role_consultant: 'Сімейний лікар',
   role_manager: 'Страховий агент',
   settings_on: 'Включено',
-  settings_off: 'Виключено'
+  settings_off: 'Виключено',
+  booked_service_accept: '✅ Бронювання послуги <b>успішно</b> підтверджено на %date% для користувача: %client%',
+  booked_service_denied: '❌ Бронювання послуги <b>відхилено</b> на %date% для користувача: %client%',
+  callback_answer_booked_service_accept: 'Бронювання підтверджено',
+  callback_answer_booked_service_denied: 'Бронювання відхилено',
+  view_on_the_site: 'Переглянути на сайті',
+  error_access: 'Помилка доступу'
 };

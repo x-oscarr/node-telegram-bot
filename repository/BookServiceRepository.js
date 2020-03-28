@@ -53,6 +53,27 @@ class BookServiceRepository extends BaseRepository{
         }
         return query;
     }
+
+    async getBookServicesWithClient(bookServiceId) {
+        return this.qb.table(this.table)
+            .select(
+                'book_service.id', 'book_service.expert_id', 'book_service.start_date', 'service.title', 'service.description',
+                'service.price', 'service.video_consultation', 'service.departure_to_the_client',
+                'user_translation.full_name'
+            )
+            .innerJoin('service',
+                'book_service.service_id', '=', 'service.id')
+            .innerJoin('user_translation',
+                'book_service.client_id', '=', 'user_translation.translatable_id')
+            .where('book_service.id', bookServiceId)
+            .first();
+    }
+
+    async setStatusBookService(bookServiceId, status) {
+        return this.qb.table(this.table)
+            .update('status', status)
+            .where('id', bookServiceId);
+    }
 }
 
 module.exports = BookServiceRepository;
