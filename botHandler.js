@@ -4,23 +4,8 @@ class BotHandler {
         this.bot = container.get('bot');
         this.botRedis = container.get('botRedis');
         this.messageListener = {};
-        this.cmdList = [
-            container.get('/start'),
-            container.get('/cabinet'),
-            container.get('/heal'),
-            container.get('/settings')
-        ];
-
-        this.callbackList = [
-            container.get('&bookService'),
-            container.get('&cabinet'),
-            container.get('&close'),
-            container.get('&changeRole'),
-            container.get('&services'),
-            container.get('&settings'),
-            container.get('&sync'),
-            container.get('&unsync')
-        ]
+        this.cmdList = container.getOnRegexp(/^\/(.+)/);
+        this.callbackList = container.getOnRegexp(/^&(.+)/);
     }
 
     run() {
@@ -52,7 +37,7 @@ class BotHandler {
                 this.messageListener[uid]
                     .data[this.messageListener[uid].counter] = msg;
 
-                // Call next method in message listener or delete message lisener data if next method is not set
+                // Call next method in message listener or delete message listener data if next method is not set
                 const nextMethod = this.messageListener[uid]
                     .methodList[this.messageListener[uid].counter];
                 if(nextMethod) {
@@ -63,7 +48,9 @@ class BotHandler {
                 }
             }
         });
-        this.botRedis.subscribe(process.env.REDIS_SUB);
+        if(process.env.REDIS_ENABLE === 'true') {
+            this.botRedis.subscribe(process.env.REDIS_SUB);
+        }
     }
 }
 

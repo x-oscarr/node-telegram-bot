@@ -8,16 +8,26 @@ const en = require('./translations/en');
 
 class BotTranslator {
     constructor() {
-        this.defLocale = 'uk';
-        this.transData = { uk, ru, en }
+        this.defLocale = process.env.DEFAULT_LOCALE;
+        this.transData = {};
+        for (let item of process.env.LOCALES.split(',')) {
+            this.transData[item.trim()] = require(`./translations/${item.trim()}`);
+        }
     }
     get(key, locale = this.defLocale, vars = null) {
         // Locale
         if(typeof locale === 'object' && locale.from) {
             locale = locale.from.language_code;
         }
-        else locale = this.defLocale;
-        let textOutput = this.transData[locale][key] ? this.transData[locale][key] : this.transData[this.defLocale][key];
+        locale = locale ? locale : this.defLocale;
+        // Key
+        let textOutput;
+        if(this.transData[locale][key]) {
+            textOutput = this.transData[locale][key];
+        }
+        else if(this.transData[this.defLocale][key]){
+            textOutput = this.transData[this.defLocale][key];
+        }
         if(!textOutput) {
             return key;
         }
@@ -27,7 +37,6 @@ class BotTranslator {
                 textOutput = textOutput.replace(key, vars[key]);
             }
         }
-
         return textOutput;
     }
 }

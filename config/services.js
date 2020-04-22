@@ -4,10 +4,7 @@ require('dotenv').config();
 const RedisStreams = require("../redisStreams");
 const redisMessageTemplate = require("./redisMessageTemplate");
 const knex = require('knex');
-const UserTelegramRepository = require('../repository/UserTelegramRepository');
 const UserRepository = require('../repository/UserRepository');
-const ServiceRepository = require('../repository/ServiceRepository');
-const BookServiceRepository = require('../repository/BookServiceRepository');
 
 const TelegramBot = require('node-telegram-bot-api');
 const BotHandler = require('../botHandler');
@@ -15,19 +12,10 @@ const BotEmitter = require('../botEmitter');
 const BotTranslator = require('../botTranslator');
 const BotRedis = require('../botRedis');
 //Commands
-const CabinetCommand = require('../commands/cabinetCommand');
-const HealCommand = require('../commands/healCommand');
 const StartCommand = require('../commands/startCommand');
-const SettingsCommand = require('../commands/settingsCommand');
 //Callbacks
-const BookServiceCallback = require('../callbacks/bookServiceCallback');
-const CabinetCallback = require('../callbacks/cabinetCallback');
-const ChangeRoleCallback = require('../callbacks/changeRoleCallback');
 const CloseCallback = require('../callbacks/closeCallback');
-const ServicesCallback = require('../callbacks/servicesCallback');
-const SettingsCallback = require('../callbacks/settingsCallback');
-const SyncCallback = require('../callbacks/syncCallback');
-const UnsyncCallback = require('../callbacks/unsyncCallback');
+const AcquaintanceCallback = require('../callbacks/acquaintanceCallback');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -59,55 +47,11 @@ module.exports = (container) => {
        return new BotTranslator();
     });
 
-    // Telegram Bot commands
-    container.register('/start', () => {
-        return new StartCommand(container);
-    });
-
-    container.register('/cabinet', () => {
-        return new CabinetCommand(container);
-    });
-
-    container.register('/heal', () => {
-        return new HealCommand(container);
-    });
-
-    container.register('/settings', () => {
-        return new SettingsCommand(container);
-    });
-
-    // Telegram Bot callbacks
-    container.register('&bookService', () => {
-       return new BookServiceCallback(container);
-    });
-    container.register('&sync', () => {
-        return new SyncCallback(container);
-    });
-    container.register('&unsync', () => {
-        return new UnsyncCallback(container);
-    });
-    container.register('&settings', () => {
-        return new SettingsCallback(container);
-    });
-    container.register('&services', () => {
-        return new ServicesCallback(container);
-    });
-    container.register('&cabinet', () => {
-        return new CabinetCallback(container);
-    });
-    container.register('&changeRole', () => {
-        return new ChangeRoleCallback(container);
-    });
-    container.register('&close', () => {
-        return new CloseCallback(container);
-    });
-
-
     // DB Repositories
     const qb = container.get('knex');
 
     container.register('userRepository', () => {
-       return new UserRepository(qb);
+        return new UserRepository(qb);
     });
 
     container.register('userTelegramRepository', () => {
@@ -123,11 +67,26 @@ module.exports = (container) => {
     });
 
     container.register('botRedis', () => {
-        return new BotRedis(RedisStreams, {
-            host: process.env.REDIS_HOST,
-            port: process.env.REDIS_PORT,
-            template: redisMessageTemplate,
-            events: container.get('botEmitter'),
-        })
+        if(process.env.REDIS_ENABLE === 'true') {
+            return new BotRedis(RedisStreams, {
+                host: process.env.REDIS_HOST,
+                port: process.env.REDIS_PORT,
+                template: redisMessageTemplate,
+                events: container.get('botEmitter'),
+            })
+        }
+    });
+
+    // Telegram Bot commands
+    container.register('/start', () => {
+        return new StartCommand(container);
+    });
+
+    // Telegram Bot callbacks
+    container.register('&close', () => {
+        return new CloseCallback(container);
+    });
+    container.register('&acquaintance', () => {
+        return new AcquaintanceCallback(container);
     });
 };

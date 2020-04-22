@@ -20,9 +20,19 @@ class BotContainer {
         if(strategy === STRATEGY_SINGLETON) {
             this.configured[id] = result;
         }
-        return result
+        return result;
     }
 
+   getOnRegexp(regex) {
+        let services = [];
+        for (let key in this.registered) {
+            if (regex.test(key)) {
+                const service = this.get(key);
+                services.push(service);
+            }
+        }
+        return services;
+   }
 
     register(id, callback, strategy = STRATEGY_SINGLETON) {
         if(this.registered[id]) {
