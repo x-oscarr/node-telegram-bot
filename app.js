@@ -1,10 +1,10 @@
-const {BotContainer} = require('./botContainer');
+const {Container} = require('./container');
 const configureServices = require('./config/services');
 
-const container = new BotContainer();
+const container = new Container();
 configureServices(container);
 
-botEmitter = container.get('botEmitter');
-botHandler = container.get('botHandler');
+Emitter = container.get('emitter');
+Handler = container.get('handler');
 bot = container.get('bot');
-botHandler.run();
+Handler.run();

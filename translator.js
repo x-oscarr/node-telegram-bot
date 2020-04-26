@@ -6,7 +6,7 @@ const uk = require('./translations/uk');
 const ru = require('./translations/ru');
 const en = require('./translations/en');
 
-class BotTranslator {
+class Translator {
     constructor() {
         this.defLocale = process.env.DEFAULT_LOCALE;
         this.transData = {};
@@ -41,4 +41,4 @@ class BotTranslator {
     }
 }
 
-module.exports = BotTranslator;
+module.exports = Translator;

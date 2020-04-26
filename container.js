@@ -1,7 +1,7 @@
 const STRATEGY_SINGLETON = 'singleton';
 const STRATEGY_PROTOTYPE = 'prototype';
 
-class BotContainer {
+class Container {
     constructor() {
         this.configured = {};
         this.registered = {};
@@ -23,17 +23,6 @@ class BotContainer {
         return result;
     }
 
-   getOnRegexp(regex) {
-        let services = [];
-        for (let key in this.registered) {
-            if (regex.test(key)) {
-                const service = this.get(key);
-                services.push(service);
-            }
-        }
-        return services;
-   }
-
     register(id, callback, strategy = STRATEGY_SINGLETON) {
         if(this.registered[id]) {
             throw new Error(`Service ${id} is exist`);
@@ -46,10 +35,21 @@ class BotContainer {
             strategy
         };
     }
+
+    getOnRegexp(regex) {
+        let services = [];
+        for (let key in this.registered) {
+            if (regex.test(key)) {
+                const service = this.get(key);
+                services.push(service);
+            }
+        }
+        return services;
+    }
 }
 
 module.exports = {
     STRATEGY_SINGLETON,
     STRATEGY_PROTOTYPE,
-    BotContainer
+    Container: Container
 };

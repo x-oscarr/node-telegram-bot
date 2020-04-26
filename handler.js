@@ -1,8 +1,8 @@
-class BotHandler {
+class Handler {
     constructor(container) {
         this.container = container;
         this.bot = container.get('bot');
-        this.botRedis = container.get('botRedis');
+        this.redis = container.get('redis');
         this.messageListener = {};
         this.cmdList = container.getOnRegexp(/^\/(.+)/);
         this.callbackList = container.getOnRegexp(/^&(.+)/);
@@ -16,9 +16,10 @@ class BotHandler {
                 item.execute(msg, match);
             });
         });
+
         // BUTTON CALLBACK SYSTEM
         this.bot.on('callback_query', (callback) => {
-            for (let callbackObj of this.callbackList) {
+            for (let callbackObj of callbackList) {
                 if(callbackObj.regex.test(callback.data)) {
                     // Callback execute
                     const match = callback.data.match(callbackObj.regex);
@@ -49,9 +50,9 @@ class BotHandler {
             }
         });
         if(process.env.REDIS_ENABLE === 'true') {
-            this.botRedis.subscribe(process.env.REDIS_SUB);
+            this.redis.subscribe(process.env.REDIS_SUB);
         }
     }
 }
 
-module.exports = BotHandler;
+module.exports = Handler;
