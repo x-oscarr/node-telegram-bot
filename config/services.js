@@ -4,13 +4,14 @@ require('dotenv').config();
 const RedisStreams = require("../redisStreams");
 const redisMessageTemplate = require("./redisMessageTemplate");
 const knex = require('knex');
+// Repositories
 const UserRepository = require('../repository/UserRepository');
 
 const TelegramBot = require('node-telegram-bot-api');
-const BotHandler = require('../botHandler');
-const BotEmitter = require('../botEmitter');
-const BotTranslator = require('../botTranslator');
-const BotRedis = require('../botRedis');
+const Handler = require('../handler');
+const Emitter = require('../emitter');
+const Translator = require('../translator');
+const Redis = require('../redis');
 //Commands
 const StartCommand = require('../commands/startCommand');
 //Callbacks
@@ -35,16 +36,16 @@ module.exports = (container) => {
         return new TelegramBot(token, {polling: true});
     });
 
-    container.register('botEmitter', () => {
-        return require('./events')(new BotEmitter());
+    container.register('emitter', () => {
+        return require('./events')(new Emitter());
     });
 
-    container.register('botHandler', () => {
-        return new BotHandler(container);
+    container.register('handler', () => {
+        return new Handler(container);
     });
 
-    container.register('botTranslator', () => {
-       return new BotTranslator();
+    container.register('translator', () => {
+       return new Translator();
     });
 
     // DB Repositories
@@ -54,25 +55,13 @@ module.exports = (container) => {
         return new UserRepository(qb);
     });
 
-    container.register('userTelegramRepository', () => {
-        return new UserTelegramRepository(qb);
-    });
-
-    container.register('bookServiceRepository', () => {
-        return new BookServiceRepository(qb);
-    });
-
-    container.register('serviceRepository', () => {
-        return new ServiceRepository(qb);
-    });
-
-    container.register('botRedis', () => {
+    container.register('redis', () => {
         if(process.env.REDIS_ENABLE === 'true') {
-            return new BotRedis(RedisStreams, {
+            return new Redis(RedisStreams, {
                 host: process.env.REDIS_HOST,
                 port: process.env.REDIS_PORT,
                 template: redisMessageTemplate,
-                events: container.get('botEmitter'),
+                events: container.get('emitter'),
             })
         }
     });

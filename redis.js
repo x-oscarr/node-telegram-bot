@@ -1,6 +1,6 @@
 const helpers = require('./helpers');
 
-class BotRedis {
+class Redis {
     constructor(RedisStreams, data) {
         const {host, port, template, events} = data;
         this.streams = new RedisStreams({host, port});
@@ -31,4 +31,4 @@ class BotRedis {
     }
 }
 
-module.exports = BotRedis;
+module.exports = Redis;

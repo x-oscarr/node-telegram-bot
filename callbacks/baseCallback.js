@@ -1,7 +1,7 @@
 class BaseCallback {
     constructor(container) {
-        this.events = container.get('botEmitter');
-        this.trans = container.get('botTranslator');
+        this.events = container.get('emitter');
+        this.trans = container.get('translator');
     }
 
     action(action, data = null) {
