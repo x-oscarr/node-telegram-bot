@@ -1,10 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const helpers = require('./helpers');
-
-const uk = require('./translations/uk');
-const ru = require('./translations/ru');
-const en = require('./translations/en');
 
 class Translator {
     constructor() {
