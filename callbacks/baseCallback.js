@@ -19,3 +19,4 @@ class BaseCallback {
 }
 
 module.exports = BaseCallback;
+

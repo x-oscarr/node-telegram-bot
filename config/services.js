@@ -6,7 +6,10 @@ const redisMessageTemplate = require("./redisMessageTemplate");
 const knex = require('knex');
 // Repositories
 const UserRepository = require('../repository/UserRepository');
-
+const ContentRepository = require('../repository/ContentRepository');
+const FacultyRepository = require('../repository/FacultyRepository');
+const LessonRepository = require('../repository/LessonRepository');
+const StudentsGroupRepository = require('../repository/StudentsGroupRepository');
 const TelegramBot = require('node-telegram-bot-api');
 const Handler = require('../handler');
 const Emitter = require('../emitter');
@@ -14,9 +17,11 @@ const Translator = require('../translator');
 const Redis = require('../redis');
 //Commands
 const StartCommand = require('../commands/startCommand');
+const MenuCommand = require('../commands/menuCommand');
 //Callbacks
 const CloseCallback = require('../callbacks/closeCallback');
-const AcquaintanceCallback = require('../callbacks/acquaintanceCallback');
+const RegistrationCallback = require('../callbacks/registrationCallback');
+const MainMenuCallback = require('../callbacks/mainMenuCallback');
 
 module.exports = (container) => {
     container.register('knex', () => {
@@ -54,6 +59,18 @@ module.exports = (container) => {
     container.register('userRepository', () => {
         return new UserRepository(qb);
     });
+    container.register('contentRepository', () => {
+        return new ContentRepository(qb);
+    });
+    container.register('facultyRepository', () => {
+        return new FacultyRepository(qb);
+    });
+    container.register('lessonRepository', () => {
+        return new LessonRepository(qb);
+    });
+    container.register('studentsGroupRepository', () => {
+        return new StudentsGroupRepository(qb);
+    });
 
     container.register('redis', () => {
         if(process.env.REDIS_ENABLE === 'true') {
@@ -70,12 +87,18 @@ module.exports = (container) => {
     container.register('/start', () => {
         return new StartCommand(container);
     });
+    container.register('/menu', () => {
+        return new MenuCommand(container);
+    });
 
     // Telegram Bot callbacks
     container.register('&close', () => {
         return new CloseCallback(container);
     });
-    container.register('&acquaintance', () => {
-        return new AcquaintanceCallback(container);
+    container.register('&registration', () => {
+        return new RegistrationCallback(container);
+    });
+    container.register('&mainMenu', () => {
+        return new MainMenuCallback(container);
     });
 };

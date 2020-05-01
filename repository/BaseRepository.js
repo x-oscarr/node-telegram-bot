@@ -1,11 +1,11 @@
 class BaseRepository {
-    constructor(queryBuilder) {
-        this.qb = queryBuilder;
-        this.table = null;
+    constructor(queryBuilder, table) {
+        this.table = table;
+        this.qb = (tableName = this.table) => queryBuilder.table(tableName);
     }
 
-    findQuery(criteria, options = null, table = this.table) {
-        let query = this.qb.table(table);
+    findBy(criteria, options = null) {
+        let query = this.qb();
 
         // criteria
         let index = 0;
@@ -32,20 +32,16 @@ class BaseRepository {
         return query;
     }
 
-    async find(id, table = this.table) {
-        return this.qb.table(table).where('id', id).first();
-    }
-
-    async findBy(criteria, options) {
-        return this.findQuery(criteria, options);
+    async find(id) {
+        return this.qb().where('id', id).first();
     }
 
     async findOneBy(criteria, options) {
-        return this.findQuery(criteria, options).first();
+        return this.findBy(criteria, options).first();
     }
 
     async findAll() {
-        return this.findQuery([]);
+        return this.findBy([]);
     };
 }
 
