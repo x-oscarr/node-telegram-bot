@@ -32,11 +32,17 @@ class UserRepository extends BaseRepository{
         }
         return this.qb()
             .where('id', id)
-            .update({locale: language_code});
+            .update({
+                locale: language_code,
+            });
     }
 
     async setGroup(userId, groupId) {
-        return this.qb().where('id', userId).update({students_group_id: groupId});
+        return this.qb().where('id', userId).update({students_group_id: groupId ? groupId : null});
+    }
+
+    async setRole(userId, role) {
+        return this.qb().where('id', userId).update({roles: JSON.stringify([this.ROLE_USER, role])})
     }
 
     async getUser(telegramUser) {

@@ -21,7 +21,7 @@ module.exports = function (Emitter) {
             Handler.messageListener[uid].counter = newCounter;
         }
         else {
-            throw new Error(`MessageListener from user ${msg.chat.id}`);
+            throw new Error(`Doesn't exists MessageListener from user ${msg.chat.id}`);
         }
     });
 

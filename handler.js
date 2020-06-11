@@ -38,7 +38,7 @@ class Handler {
                 this.messageListener[uid]
                     .data[this.messageListener[uid].counter] = msg;
 
-                // Call next method in message listener or delete message listener data if next method is not set
+                // Call next method in message listener or delete message listener data if next method is doesnt set
                 const nextMethod = this.messageListener[uid]
                     .methodList[this.messageListener[uid].counter];
                 if(nextMethod) {

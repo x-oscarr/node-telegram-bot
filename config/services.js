@@ -19,6 +19,7 @@ const Redis = require('../redis');
 const StartCommand = require('../commands/startCommand');
 const MenuCommand = require('../commands/menuCommand');
 //Callbacks
+const ContentCallback = require('../callbacks/contentCallback');
 const CloseCallback = require('../callbacks/closeCallback');
 const RegistrationCallback = require('../callbacks/registrationCallback');
 const MainMenuCallback = require('../callbacks/mainMenuCallback');

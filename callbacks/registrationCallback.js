@@ -3,7 +3,7 @@ baseCallback = require('./baseCallback');
 class RegistrationCallback extends baseCallback{
     constructor(container) {
         super(container);
-        this.regex = /^registration\s([a-zA-Z0-9]+)\s?([a-zA-Z0-9]+)?/;
+        this.regex = /^registration\s([a-zA-Z0-9_]+)\s?([a-zA-Z0-9_]+)?/;
         this.userRepository = container.get('userRepository');
         this.facultyRepository = container.get('facultyRepository');
         this.studentsGroupRepository = container.get('studentsGroupRepository');
@@ -21,8 +21,14 @@ class RegistrationCallback extends baseCallback{
         this.action('answerCallbackQuery', {callbackQueryId: msg.id});
         this.userData[key] = value;
         switch (key) {
-            case this.KEY_ROLE: this.chooseFaculty(msg); break;
-            case this.KEY_FACULTY: this.chooseCourse(msg); break;
+            case this.KEY_ROLE:
+                if(this.userData.role === this.userRepository.ROLE_ENTRANT) this.final(msg);
+                else this.chooseFaculty(msg);
+                break;
+            case this.KEY_FACULTY:
+                if(this.userData.role === this.userRepository.ROLE_USER) this.final(msg);
+                else this.chooseCourse(msg);
+                break;
             case this.KEY_COURSE: this.chooseGroup(msg); break;
             case this.KEY_GROUP: this.final(msg); break;
         }
@@ -86,6 +92,7 @@ class RegistrationCallback extends baseCallback{
     }
 
     async final(msg) {
+        await this.userRepository.setRole(msg.from.id, this.userData.role);
         await this.userRepository.setGroup(msg.from.id, this.userData.group);
         this.action('editMessageText', {
             message_id: msg.message.message_id,

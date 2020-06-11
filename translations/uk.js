@@ -3,7 +3,7 @@ module.exports = {
   start_choose_faculty: 'Виберіть свій факультет:',
   start_choose_course: 'Виберіть свій курс:',
   start_choose_group: 'Виберіть свою групу:',
-  start_registration_final: 'Реєстрацію завершено, для відкриття меню напишіть /start',
+  start_registration_final: 'Реєстрацію завершено, для відкриття меню напишіть /menu',
   menu_select_command: 'Виберіть команду',
 
   button_useful_info: 'Корисна інформація',
@@ -18,9 +18,13 @@ module.exports = {
   button_back: '« Назад',
   button_start_student: 'Студент',
   button_start_teacher: 'Викладач',
-  button_menu_entrants: 'Абітурєнтам',
+  button_menu_entrant: 'Абітурєнт',
   button_menu_students: 'Студентам',
   button_menu_teachers: 'Викладачам',
+
+  content_block: '%text%',
+  content_title: '<b>%title%</b>\n',
+  content_link: '\n\n<a href="%link%">Посилання</a>',
 
   url_lntu: 'Сайт ЛНТУ'
 };

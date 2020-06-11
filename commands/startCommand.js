@@ -17,9 +17,9 @@ class StartCommand extends BaseCommand {
             reply_markup: {
                 inline_keyboard: [
                     [
-                        {text: this.trans.get('button_start_student', msg), callback_data: 'registration role student'},
-                        {text: this.trans.get('button_start_teacher', msg), callback_data: 'registration role teacher'},
-                        {text: this.trans.get('button_menu_entrants', msg), callback_data: 'registration role entrants'}
+                        {text: this.trans.get('button_start_student', msg), callback_data: `registration role ${this.userRepository.ROLE_STUDENT}`},
+                        {text: this.trans.get('button_start_teacher', msg), callback_data: `registration role ${this.userRepository.ROLE_TEACHER}`},
+                        {text: this.trans.get('button_menu_entrant', msg), callback_data: `registration role ${this.userRepository.ROLE_ENTRANT}`}
                     ],
                     [{text: this.trans.get('url_lntu', msg), url: process.env.URL_LNTU}]
                 ]
