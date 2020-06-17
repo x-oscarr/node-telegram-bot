@@ -22,6 +22,7 @@ module.exports = {
   button_menu_students: 'Студентам',
   button_menu_teachers: 'Викладачам',
 
+  content_menu: 'Виберіть інформацію, яку бажаєте дізнатись: ',
   content_block: '%text%',
   content_title: '<b>%title%</b>\n',
   content_link: '\n\n<a href="%link%">Посилання</a>',

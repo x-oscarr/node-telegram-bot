@@ -45,6 +45,20 @@ class UserRepository extends BaseRepository{
         return this.qb().where('id', userId).update({roles: JSON.stringify([this.ROLE_USER, role])})
     }
 
+    async getRole(msg) {
+        const user = await this.find(msg.from.id);
+        const userRoles = JSON.parse(user.roles);
+        if(userRoles.indexOf(this.ROLE_ENTRANT) > -1) {
+            return this.ROLE_ENTRANT;
+        } else if(userRoles.indexOf(this.ROLE_TEACHER) > -1) {
+            return this.ROLE_TEACHER;
+        } else if(userRoles.indexOf(this.ROLE_STUDENT) > -1) {
+            return this.ROLE_STUDENT;
+        } else {
+            return this.ROLE_USER;
+        }
+    }
+
     async getUser(telegramUser) {
         if(typeof telegramUser === 'object' && telegramUser.id) {
             telegramUser = telegramUser.id;

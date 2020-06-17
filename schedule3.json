@@ -1,0 +1,1497 @@
+[
+  {
+    "student_group_name": "КСМ",
+    "student_group_course": 3,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Лавренчук С.В.",
+        "subject": "Бази даних",
+        "auditory": "303 А",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Бондарчук Л.Ф.",
+        "subject": "Охорона праці",
+        "auditory": "40",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Лавренчук С.В.",
+        "subject": "Бази даних",
+        "auditory": "",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схем.",
+        "auditory": "303",
+        "type_of_week": 1,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А",
+        "subject": "Архіт.комп",
+        "auditory": "",
+        "type_of_week": 2,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Сист.програм.заб",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Бондарчук Л.Ф.",
+        "subject": "Охорона праці",
+        "auditory": "367",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн.",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Кузьмич О.І.",
+        "subject": "Алгоритми",
+        "auditory": "303",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кузьмич О.І.",
+        "subject": "Алгоритми",
+        "auditory": "303 A",
+        "type_of_week": 1,
+        "day_of_week": 4,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А",
+        "subject": "Архітектур. комп.",
+        "auditory": "402",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А",
+        "subject": "Архітектур. комп.",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схем.",
+        "auditory": "145",
+        "type_of_week": 2,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Нові системи",
+        "auditory": "145",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Сист.програм.",
+        "auditory": "145",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Нові системи",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      }
+    ]
+  },
+  {
+    "student_group_name": "КСМі",
+    "student_group_course": 3,
+    "student_group_number": 2,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В",
+        "subject": "Нові системи",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Лавренчук С.В.",
+        "subject": "Бази даних",
+        "auditory": "303",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Сист.програм.заб.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "39",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кузьмич О.І.",
+        "subject": "Алгоритми",
+        "auditory": "303 A",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Андрощук І.В.",
+        "subject": "ОП та БЖД",
+        "auditory": "251",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схем",
+        "auditory": "145",
+        "type_of_week": 1,
+        "day_of_week": 5,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "КБ",
+    "student_group_course": 3,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Бондарчук Л.Ф.",
+        "subject": "Охорона праці",
+        "auditory": "251",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Бондарчук Л.Ф.",
+        "subject": "Охорона праці",
+        "auditory": "40",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Лавренчук С.В.",
+        "subject": "Бази даних",
+        "auditory": "40",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архіт.комп.",
+        "auditory": "39",
+        "type_of_week": 1,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн.",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Побуд.захищ.сист",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн.",
+        "auditory": "39",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Комп. схемотехн.",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "402",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Лавренчук С.В.",
+        "subject": "Бази даних ",
+        "auditory": "303 A",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Лінчук О.М.",
+        "subject": "Безпека Web-ресур.",
+        "auditory": "303",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Лінчук О.М.",
+        "subject": "Безпека Web-ресур.",
+        "auditory": "303 A",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук Л.М.",
+        "subject": "Сист.техн.зах.",
+        "auditory": "143",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук Л.М.",
+        "subject": "Сист.техн.захист",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук Л.М",
+        "subject": "Побуд.зах.сис",
+        "auditory": "145",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 4
+      }
+    ]
+  },
+  {
+    "student_group_name": "ПІЗ",
+    "student_group_course": 4,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Ліщина В.О.",
+        "subject": "Техн.розп.мереж",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина М.Н",
+        "subject": "Аналіз вимог",
+        "auditory": "32",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Потейчук М.І",
+        "subject": "Аналіз вимог",
+        "auditory": "32/16",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Повстяна Ю.С",
+        "subject": "Людино-машина",
+        "auditory": "212 A",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Повстяна Ю.С",
+        "subject": "Людино-машина",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Герасимчук Г.А.",
+        "subject": "Менеджмент проек",
+        "auditory": "120",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Герасимчук Г.А",
+        "subject": "Менеджмент проек",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я",
+        "subject": "Екон.обгрунтуван.",
+        "auditory": "317",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я",
+        "subject": "Екон.обгрунтуван.",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпорат.портали",
+        "auditory": "18",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпорат.портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина В.О.",
+        "subject": "Техн.розп.мереж",
+        "auditory": "18",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "ПІЗс",
+    "student_group_course": 2,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Техн.розп.мереж",
+        "subject": "Техн.розп.мереж",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина М.Н.",
+        "subject": "Аналіз вимог",
+        "auditory": "32",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Потейчук М.І.",
+        "subject": "Аналіз вимог",
+        "auditory": "32/16",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Повстяна Ю.С.",
+        "subject": "Людино-машина",
+        "auditory": "212 A",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Повстяна Ю.С.",
+        "subject": "Людино-машина",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Герасимчук Г.А.",
+        "subject": "Менеджмент проекту",
+        "auditory": "120",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Герасимчук Г.А.",
+        "subject": "Менеджмент проекту",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпорат.портали",
+        "auditory": "18",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпорат.портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина В.О.",
+        "subject": "Техн.розп.мереж",
+        "auditory": "18",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "ПНК",
+    "student_group_course": 4,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Редько О.І.",
+        "subject": "Атомат. системи",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Редько О.І.",
+        "subject": "Атомат. системи",
+        "auditory": "44",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув",
+        "auditory": "317",
+        "type_of_week": 4,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув",
+        "auditory": "1",
+        "type_of_week": 4,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "402",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпор. портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпор. портали",
+        "auditory": "19",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "ПНКc",
+    "student_group_course": 2,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Редько О.І.",
+        "subject": "Атомат. системи",
+        "auditory": "219",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Редько О.І.",
+        "subject": "Атомат. системи",
+        "auditory": "44",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина Н.М.",
+        "subject": "Систем. аналіз",
+        "auditory": "212 A",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Ліщина Н.М.",
+        "subject": "Систем. аналіз",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "402",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпор. портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпор. портали",
+        "auditory": "19",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "КН",
+    "student_group_course": 4,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Подоляк В.М.",
+        "subject": "Тестування ПЗ",
+        "auditory": "115",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Подоляк В.М.",
+        "subject": "Тестування ПЗ",
+        "auditory": "212 A",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "111",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В.",
+        "subject": "Корпор. портали",
+        "auditory": "18",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кабак В.В.",
+        "subject": "Апаратні та прогр.",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кабак В.В.",
+        "subject": "Апаратні та прогр",
+        "auditory": "212 A",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В",
+        "subject": "Корпор. портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      }
+    ]
+  },
+  {
+    "student_group_name": "КНc",
+    "student_group_course": 2,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Редько О.І.",
+        "subject": "Корпор. портали",
+        "auditory": "19",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Тулашвілі Ю.Й.",
+        "subject": "Web-програмуван.",
+        "auditory": "303",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Тулашвілі Ю.Й.",
+        "subject": "Web-програмування",
+        "auditory": "39.400",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кабак В.В.",
+        "subject": "Апаратні та прогр.",
+        "auditory": "19",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "401",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кабак В.В.",
+        "subject": "Апаратні та прогр.",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Гапончук О.М.",
+        "subject": "Soft-Skils",
+        "auditory": "16",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Саварин П.В",
+        "subject": "Корпор. портали",
+        "auditory": "211",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      }
+    ]
+  },
+  {
+    "student_group_name": "КСМ",
+    "student_group_course": 4,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Техн.проект",
+        "auditory": "145",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Захист інформ",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Зах.інформ.",
+        "auditory": "301",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "400/303",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Захист інформ",
+        "auditory": "36",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інженерія програм",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "404",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Технолог. проект.",
+        "auditory": "40",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Технолог. проект.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інженерія програм",
+        "auditory": "251",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інжен.прогр",
+        "auditory": "143",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп.мереж",
+        "auditory": "303 A",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 2
+      }
+    ]
+  },
+  {
+    "student_group_name": "КСМ",
+    "student_group_course": 4,
+    "student_group_number": 2,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Техн.проект",
+        "auditory": "145",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Захист інформ",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Зах.інформ.",
+        "auditory": "301",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "400/303",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Захист інформ",
+        "auditory": "36",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інженерія програм",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "1",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "404",
+        "type_of_week": 3,
+        "day_of_week": 4,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Технолог. проект.",
+        "auditory": "40",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Технолог. проект.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інженерія програм",
+        "auditory": "251",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інжен.прогр",
+        "auditory": "143",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп.мереж",
+        "auditory": "303 A",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 2
+      }
+    ]
+  },
+  {
+    "student_group_name": "КСМі",
+    "student_group_course": 4,
+    "student_group_number": 3,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Техн.проект",
+        "auditory": "145",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інженерія програм",
+        "auditory": "314",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Зах.інформ",
+        "auditory": "303 A",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Поліщук М.М.",
+        "subject": "Інжен.прогр",
+        "auditory": "303 A",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Захист інформ.",
+        "auditory": "39",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Кравчук О.Я.",
+        "subject": "Економ.обгрунтув.",
+        "auditory": "267",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мереж.",
+        "auditory": "301",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мереж.",
+        "auditory": "301",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мереж.",
+        "auditory": "303 A",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Здолбіцька Н.В.",
+        "subject": "Технолог. проект.",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  },
+  {
+    "student_group_name": "КСМс",
+    "student_group_course": 2,
+    "student_group_number": 1,
+    "lessons": [
+      {
+        "semester": 2,
+        "teacher": "Каганюк О.К.",
+        "subject": "Інженерн.програм",
+        "auditory": "143",
+        "type_of_week": 3,
+        "day_of_week": 2,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник К.В.",
+        "subject": "Осн.наук.діял",
+        "auditory": "102",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Каганюк О.К.",
+        "subject": "Інженерн.програм",
+        "auditory": "143",
+        "type_of_week": 2,
+        "day_of_week": 2,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник К.В.",
+        "subject": "Паралел.обч.",
+        "auditory": "102",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М",
+        "subject": "Зах.інформ.",
+        "auditory": "303",
+        "type_of_week": 1,
+        "day_of_week": 2,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Зах.інформ.",
+        "auditory": "303",
+        "type_of_week": 1,
+        "day_of_week": 3,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "400/303",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "145",
+        "type_of_week": 3,
+        "day_of_week": 3,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Христинець Н.А.",
+        "subject": "Архітектур. комп.",
+        "auditory": "145",
+        "type_of_week": 2,
+        "day_of_week": 3,
+        "number": 4
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник В.М.",
+        "subject": "Зах.інформ",
+        "auditory": "303",
+        "type_of_week": 2,
+        "day_of_week": 3,
+        "number": 5
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник К.В.",
+        "subject": "Паралельні обчисл.",
+        "auditory": "303 A",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Мельник К.В.",
+        "subject": "Осн.наук.діяльн",
+        "auditory": "301",
+        "type_of_week": 3,
+        "day_of_week": 5,
+        "number": 3
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "301",
+        "type_of_week": 1,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Кирилюк Л.М",
+        "subject": "Техн.проект",
+        "auditory": "40",
+        "type_of_week": 2,
+        "day_of_week": 6,
+        "number": 1
+      },
+      {
+        "semester": 2,
+        "teacher": "Кирилюк Л.М.",
+        "subject": "Технолог. проект.",
+        "auditory": "143/301",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 2
+      },
+      {
+        "semester": 2,
+        "teacher": "Багнюк Н.В.",
+        "subject": "Комп. мережі",
+        "auditory": "303",
+        "type_of_week": 3,
+        "day_of_week": 6,
+        "number": 3
+      }
+    ]
+  }
+]

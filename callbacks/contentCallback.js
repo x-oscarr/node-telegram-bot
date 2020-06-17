@@ -32,6 +32,14 @@ class MainMenuCallback extends baseCallback{
             }
         }
     }
+
+    async contentMenu(msg) {
+        const message = msg.message ? msg.message : msg;
+        this.action('sendMessage', {
+            chat_id: message.chat.id,
+            text: 'Menu'
+        })
+    }
 }
 
 module.exports = MainMenuCallback;

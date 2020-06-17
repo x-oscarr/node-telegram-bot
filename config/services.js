@@ -10,6 +10,7 @@ const ContentRepository = require('../repository/ContentRepository');
 const FacultyRepository = require('../repository/FacultyRepository');
 const LessonRepository = require('../repository/LessonRepository');
 const StudentsGroupRepository = require('../repository/StudentsGroupRepository');
+const WeekRepository = require('../repository/WeekRepository');
 const TelegramBot = require('node-telegram-bot-api');
 const Handler = require('../handler');
 const Emitter = require('../emitter');
@@ -20,6 +21,7 @@ const StartCommand = require('../commands/startCommand');
 const MenuCommand = require('../commands/menuCommand');
 //Callbacks
 const ContentCallback = require('../callbacks/contentCallback');
+const ScheduleCallback = require('../callbacks/scheduleCallback');
 const CloseCallback = require('../callbacks/closeCallback');
 const RegistrationCallback = require('../callbacks/registrationCallback');
 const MainMenuCallback = require('../callbacks/mainMenuCallback');
@@ -72,6 +74,9 @@ module.exports = (container) => {
     container.register('studentsGroupRepository', () => {
         return new StudentsGroupRepository(qb);
     });
+    container.register('weekRepository', () => {
+        return new WeekRepository(qb);
+    });
 
     container.register('redis', () => {
         if(process.env.REDIS_ENABLE === 'true') {
@@ -102,4 +107,10 @@ module.exports = (container) => {
     container.register('&mainMenu', () => {
         return new MainMenuCallback(container);
     });
+    container.register('&schedule', () => {
+        return new ScheduleCallback(container);
+    });
+    container.register('&content', () => {
+        return new ContentCallback(container);
+    })
 };
