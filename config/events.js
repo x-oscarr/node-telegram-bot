@@ -76,6 +76,16 @@ module.exports = function (Emitter) {
         bot.editMessageText(text, options);
     });
 
+    Emitter.on('editMessageMedia', (data) => {
+        const {media, ...options} = data;
+        bot.editMessageMedia(media, options);
+    });
+
+    Emitter.on('editMessageCaption', (data) => {
+        const {caption, ...options} = data;
+        bot.editMessageCaption(caption, options);
+    });
+
     Emitter.on('answerCallbackQuery', (data) => {
         const {callbackQueryId, ...options} = data;
         bot.answerCallbackQuery(callbackQueryId, options);

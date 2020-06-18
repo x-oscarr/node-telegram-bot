@@ -7,8 +7,6 @@ class MenuCommand extends BaseCommand {
         this.name = '/menu';
         this.description = 'Menu command';
         this.userRepository = container.get('userRepository');
-        this.schedule = container.get('&schedule');
-        this.content = container.get('&content');
     }
 
     async execute(msg, match) {
@@ -20,53 +18,25 @@ class MenuCommand extends BaseCommand {
             case this.userRepository.ROLE_ENTRANT: keyboard = this.mainKeyboardEntrant(msg); break;
             default: keyboard = this.mainKeyboardStudent(msg);
         }
-        this.action('sendMessage', {
+        this.action('sendPhoto', {
             chat_id: msg.chat.id,
-            text: this.trans.get('menu_select_command', msg),
+            photo: 'https://dev.root7.ru/content.jpg',
+            caption: this.trans.get('menu_select_command', msg),
             reply_markup: keyboard
         });
-        this.action('startMessageListener', {
-            msg,
-            cmd: this,
-            1: 'router'
-        });
-    }
-
-    async router(msg) {
-        switch (msg.text) {
-            case this.trans.get('button_schedule_today', msg):
-                await this.schedule.getTodaySchedule(msg);
-                break;
-            case this.trans.get('button_schedule_tomorrow', msg):
-                await this.schedule.getTomorrowSchedule();
-                break;
-            case this.trans.get('button_schedule', msg):
-                await this.schedule.scheduleMenu(msg);
-                break;
-            case this.trans.get('button_useful_info', msg):
-                await this.content.contentMenu(msg);
-                break;
-            case this.trans.get('button_profile', msg):
-                break;
-        }
-        // this.action('sendMessage', {
-        //     chat_id: msg.chat.id,
-        //     text: this.trans.get('menu_select_command', msg),
-        //     reply_markup: this.mainKeyboard(msg)
-        // });
     }
 
     mainKeyboardStudent(msg) {
         return {
             resize_keyboard: true,
-            keyboard: [
+            inline_keyboard: [
                 [
-                    this.trans.get('button_schedule_today', msg),
-                    this.trans.get('button_schedule_tomorrow', msg),
-                    this.trans.get('button_schedule', msg)
+                    {text: this.trans.get('button_schedule_today', msg), callback_data: 'main_menu today'},
+                    {text: this.trans.get('button_schedule_tomorrow', msg), callback_data: 'main_menu tomorrow'},
+                    {text: this.trans.get('button_schedule', msg), callback_data: 'main_menu schedule'}
                 ], [
-                    this.trans.get('button_useful_info', msg),
-                    this.trans.get('button_profile', msg)
+                    {text: this.trans.get('button_useful_info', msg), callback_data: 'main_menu info'},
+                    {text: this.trans.get('button_profile', msg), callback_data: 'main_menu profile'}
                 ]
             ]
         };
@@ -75,14 +45,13 @@ class MenuCommand extends BaseCommand {
     mainKeyboardTeacher(msg) {
         return {
             resize_keyboard: true,
-            keyboard: [
+            inline_keyboard: [
                 [
-                    this.trans.get('button_schedule_today', msg),
-                    this.trans.get('button_schedule_tomorrow', msg),
-                    this.trans.get('button_schedule', msg)
+                    {text: this.trans.get('button_schedule_second_name', msg), callback_data: 'main_menu teacher'},
+                    {text: this.trans.get('button_schedule', msg), callback_data: 'main_menu schedule'}
                 ], [
-                    this.trans.get('button_useful_info', msg),
-                    this.trans.get('button_profile', msg)
+                    {text: this.trans.get('button_useful_info', msg), callback_data: 'main_menu info'},
+                    {text: this.trans.get('button_profile', msg), callback_data: 'main_menu profile'}
                 ]
             ]
         };
@@ -90,15 +59,14 @@ class MenuCommand extends BaseCommand {
 
     mainKeyboardEntrant(msg) {
         return {
+            one_time_keyboard: true,
             resize_keyboard: true,
-            keyboard: [
+            inline_keyboard: [
                 [
-                    this.trans.get('button_schedule_today', msg),
-                    this.trans.get('button_schedule_tomorrow', msg),
-                    this.trans.get('button_schedule', msg)
+                    {text: this.trans.get('button_schedule', msg), callback_data: 'main_menu schedule'}
                 ], [
-                    this.trans.get('button_useful_info', msg),
-                    this.trans.get('button_profile', msg)
+                    {text: this.trans.get('button_useful_info', msg), callback_data: 'main_menu info'},
+                    {text: this.trans.get('button_profile', msg), callback_data: 'main_menu profile'}
                 ]
             ]
         };

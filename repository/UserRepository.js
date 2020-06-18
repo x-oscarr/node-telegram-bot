@@ -47,6 +47,9 @@ class UserRepository extends BaseRepository{
 
     async getRole(msg) {
         const user = await this.find(msg.from.id);
+        if(!user) {
+            return false;
+        }
         const userRoles = JSON.parse(user.roles);
         if(userRoles.indexOf(this.ROLE_ENTRANT) > -1) {
             return this.ROLE_ENTRANT;

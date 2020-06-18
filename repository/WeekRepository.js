@@ -6,8 +6,8 @@ class WeekRepository extends BaseRepository{
     }
 
     async getWeekType(date, dayOfWeek) {
-        let monday = new Date();
-        const minusDays = dayOfWeek == 0 ? 6 : dayOfWeek - 1;
+        let monday = date;
+        const minusDays = dayOfWeek == 0 ? 7 : dayOfWeek;
         monday.setDate(monday.getDate() - minusDays);
         monday.setHours(0, 0, 0, 0);
         return this.qb()

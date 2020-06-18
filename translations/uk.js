@@ -10,6 +10,7 @@ module.exports = {
   button_schedule: 'Розклад',
   button_schedule_today: 'Сьогодні',
   button_schedule_tomorrow: 'Завтра',
+  button_schedule_second_name: 'Розклад для викладача',
   button_profile: 'Мій профіль',
 
   button_skip: 'Пропустити',
@@ -23,9 +24,23 @@ module.exports = {
   button_menu_teachers: 'Викладачам',
 
   content_menu: 'Виберіть інформацію, яку бажаєте дізнатись: ',
-  content_block: '%text%',
+  content_block: '%text%\n',
   content_title: '<b>%title%</b>\n',
-  content_link: '\n\n<a href="%link%">Посилання</a>',
+  content_link: '\n<a href="%link%">Посилання</a>',
 
+  typeOfWeekFirst: 'Чисельник',
+  typeOfWeekSecond: 'Знаменник',
+  typeOfWeekBoth: 'Чисельник/Знаменник',
+
+  day1: 'Понеділок',
+  day2: 'Вівторок',
+  day3: 'Середа',
+  day4: 'Четверг',
+  day5: 'Пятниця',
+  day6: 'Субота',
+  day0: 'Неділя',
+
+  profile_info_student: '<b>%name%</b>\n\nІдентифікатор: %id%\nГрупа: %group%\nРоль: %role%\n\nЗмінити групу або роль можливо написавши /start',
+  you_are_not_registered: 'Ви не зареєстровані, будьласка зареєструйтесь (/start)',
   url_lntu: 'Сайт ЛНТУ'
 };
