@@ -63,8 +63,6 @@ class MenuCommand extends BaseCommand {
             resize_keyboard: true,
             inline_keyboard: [
                 [
-                    {text: this.trans.get('button_schedule', msg), callback_data: 'main_menu schedule'}
-                ], [
                     {text: this.trans.get('button_useful_info', msg), callback_data: 'main_menu info'},
                     {text: this.trans.get('button_profile', msg), callback_data: 'main_menu profile'}
                 ]

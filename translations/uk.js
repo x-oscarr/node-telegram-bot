@@ -52,7 +52,7 @@ module.exports = {
   d4: 'Чт',
   d5: 'Пт',
   d6: 'Сб',
-  d0: 'Вс',
+  d0: 'Нд',
 
   profile_info_student: '<b>%name%</b>\n\nІдентифікатор: %id%\nГрупа: %group%\nРоль: %role%\n\nЗмінити групу або роль можливо написавши /start',
   you_are_not_registered: 'Ви не зареєстровані, будьласка зареєструйтесь (/start)',

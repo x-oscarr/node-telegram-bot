@@ -14,16 +14,16 @@ class StudentsGroupRepository extends BaseRepository{
 
     async getGroup(groupName) {
         const group = groupName.match(/([а-яА-ЯA-Zгєї]+)[-_\s]?([0-9])([0-9])/);
-        if(group[1] && group[2] && group[3]) {
-            return this.qb()
-                .where({
-                    name: group[1],
-                    course: group[2],
-                    number: group[3]
-                })
-                .first();
+        if(!group) {
+            return false;
         }
-        return false;
+        return this.qb()
+            .where({
+                name: group[1],
+                course: group[2],
+                number: group[3]
+            })
+            .first();
     }
 }
 

@@ -83,15 +83,17 @@ class MainMenuCallback extends baseCallback{
     }
 
     async setTeacher(msg) {
+        this.action('stopMessageListener', msg);
         const params = {teacher: msg.text};
         const schedules = await this.lessonRepository.getSchedule(params);
         this.render(msg, schedules);
     }
 
     async setGroup(msg) {
+        this.action('stopMessageListener', msg);
         const group = await this.studentsGroupRepository.getGroup(msg.text);
         if(!group) {
-            this.notFound(msg);
+            return this.notFound(msg);
         }
         const params = {group: group.id};
         const schedules = await this.lessonRepository.getSchedule(params);
@@ -178,9 +180,11 @@ class MainMenuCallback extends baseCallback{
     }
 
     notFound(msg) {
-        this.action('sendMessage', {
+        const message = msg.message ? msg.message : msg;
+        this.action('sendPhoto', {
             chat_id: msg.from.id,
-            text: this.get('not_found', msg),
+            photo: 'https://dev.root7.ru/content.jpg',
+            caption: this.trans.get('schedule_not_found', msg),
             reply_markup: {inline_keyboard: [
                 [
                     {text: this.trans.get('button_back', msg), callback_data: 'main_menu'},

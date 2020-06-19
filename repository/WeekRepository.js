@@ -9,7 +9,7 @@ class WeekRepository extends BaseRepository{
         const dayOfWeek = date.getDay();
         let monday = date;
 
-        const minusDays = dayOfWeek == 0 ? 7 : dayOfWeek;
+        const minusDays = dayOfWeek == 0 ? 6 : dayOfWeek - 1;
         monday.setDate(monday.getDate() - minusDays);
         monday.setHours(0, 0, 0, 0);
         return this.qb()

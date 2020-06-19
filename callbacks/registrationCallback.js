@@ -26,7 +26,7 @@ class RegistrationCallback extends baseCallback{
                 else this.chooseFaculty(msg);
                 break;
             case this.KEY_FACULTY:
-                if(this.userData.role === this.userRepository.ROLE_USER) this.final(msg);
+                if(this.userData.role === this.userRepository.ROLE_TEACHER) this.final(msg);
                 else this.chooseCourse(msg);
                 break;
             case this.KEY_COURSE: this.chooseGroup(msg); break;
@@ -44,7 +44,7 @@ class RegistrationCallback extends baseCallback{
         this.action('editMessageText', {
             message_id: msg.message.message_id,
             chat_id: msg.message.chat.id,
-            text: this.trans.get('start_choose_faculties', msg),
+            text: this.trans.get('start_choose_faculty', msg),
             reply_markup: {inline_keyboard: facultiesKeyboard}
         });
     }
