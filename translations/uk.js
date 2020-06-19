@@ -11,6 +11,7 @@ module.exports = {
   button_schedule_today: 'Сьогодні',
   button_schedule_tomorrow: 'Завтра',
   button_schedule_second_name: 'Розклад для викладача',
+  button_schedule_group: 'Розглад для групи',
   button_profile: 'Мій профіль',
 
   button_skip: 'Пропустити',
@@ -27,7 +28,13 @@ module.exports = {
   content_block: '%text%\n',
   content_title: '<b>%title%</b>\n',
   content_link: '\n<a href="%link%">Посилання</a>',
-
+  schedule_group: '________[%group%]________\n',
+  schedule_day: '<b>%day%</b>:\n',
+  schedule_title: '[<b>%dayOfWeek%</b>] <code>(%typeOfWeek%)</code>\n\n',
+  schedule_item: '%time%: <b>%name%</b> <code>(%typeOfWeek%)</code>\nВикладач: %teacher%\nАудиторія: %auditory%\n-\n',
+  schedule_type_teacher: 'Введіть прізвище викладача\n<code>Наприклад: Лавренчук</code>',
+  schedule_type_group: 'Введіть назву групи\n<code>Наприклад: КСМ-41</code>',
+  schedule_not_found: 'Занять за заданними параметрами не знайдено',
   typeOfWeekFirst: 'Чисельник',
   typeOfWeekSecond: 'Знаменник',
   typeOfWeekBoth: 'Чисельник/Знаменник',
@@ -39,8 +46,16 @@ module.exports = {
   day5: 'Пятниця',
   day6: 'Субота',
   day0: 'Неділя',
+  d1: 'Пн',
+  d2: 'Вт',
+  d3: 'Ср',
+  d4: 'Чт',
+  d5: 'Пт',
+  d6: 'Сб',
+  d0: 'Вс',
 
   profile_info_student: '<b>%name%</b>\n\nІдентифікатор: %id%\nГрупа: %group%\nРоль: %role%\n\nЗмінити групу або роль можливо написавши /start',
   you_are_not_registered: 'Ви не зареєстровані, будьласка зареєструйтесь (/start)',
-  url_lntu: 'Сайт ЛНТУ'
+  url_lntu: 'Сайт ЛНТУ',
+  not_found: 'Не знайдено'
 };

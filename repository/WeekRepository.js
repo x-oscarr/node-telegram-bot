@@ -5,8 +5,10 @@ class WeekRepository extends BaseRepository{
         super(queryBuilder, 'week');
     }
 
-    async getWeekType(date, dayOfWeek) {
+    async getWeekType(date) {
+        const dayOfWeek = date.getDay();
         let monday = date;
+
         const minusDays = dayOfWeek == 0 ? 7 : dayOfWeek;
         monday.setDate(monday.getDate() - minusDays);
         monday.setHours(0, 0, 0, 0);

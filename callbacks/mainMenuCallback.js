@@ -16,7 +16,7 @@ class MainMenuCallback extends baseCallback{
             callbackQueryId: msg.id
         });
 
-        if(match[1] == 'menu') {
+        if(!match[1]) {
             this.menu(msg);
         }
 
@@ -26,9 +26,6 @@ class MainMenuCallback extends baseCallback{
                 break;
             case 'tomorrow':
                 await this.schedule.getTomorrowSchedule(msg);
-                break;
-            case 'teacher':
-                await this.schedule.getScheduleByTeacher(msg);
                 break;
             case 'schedule':
                 await this.schedule.scheduleMenu(msg);
@@ -87,7 +84,7 @@ class MainMenuCallback extends baseCallback{
             }),
             reply_markup: {
                 inline_keyboard: [[
-                    {text: this.trans.get('button_back', msg), callback_data: 'main_menu menu'},
+                    {text: this.trans.get('button_back', msg), callback_data: 'main_menu'},
                     {text: this.trans.get('button_close', msg), callback_data: 'close'}
                 ]
             ]}

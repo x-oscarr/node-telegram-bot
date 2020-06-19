@@ -100,7 +100,7 @@ class MainMenuCallback extends baseCallback{
                 {text: 'Список тижднів', callback_data: 'content weeks'},
                 {text: 'Список викладачів', callback_data: 'content teachers_list'},
             ], [
-                {text: this.trans.get('button_back', msg), callback_data: 'main_menu menu'},
+                {text: this.trans.get('button_back', msg), callback_data: 'main_menu'},
                 {text: this.trans.get('button_close', msg), callback_data: 'close'}
             ]
         ]}

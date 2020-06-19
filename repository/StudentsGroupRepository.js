@@ -11,6 +11,20 @@ class StudentsGroupRepository extends BaseRepository{
             .groupBy('faculty_id')
             .where({faculty_id: faculty})
     }
+
+    async getGroup(groupName) {
+        const group = groupName.match(/([а-яА-ЯA-Zгєї]+)[-_\s]?([0-9])([0-9])/);
+        if(group[1] && group[2] && group[3]) {
+            return this.qb()
+                .where({
+                    name: group[1],
+                    course: group[2],
+                    number: group[3]
+                })
+                .first();
+        }
+        return false;
+    }
 }
 
 module.exports = StudentsGroupRepository;

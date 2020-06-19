@@ -38,15 +38,18 @@ class LessonRepository extends BaseRepository{
         return tomorrow.getDay();
     }
 
-    async getSchedule(user, params) {
-        let qb = this.qb().where({
-            student_group_id: user.students_group_id,
-            semester_id: 2,
-            day_of_week: params.dayOfWeek,
-        });
-        if(params.teacherName) {
+    async getSchedule(params) {
+        let qb = this.qb().where({semester_id: 2});
+
+        if(params.dayOfWeek) {
+            qb.andWhere({day_of_week: params.dayOfWeek});
+        }
+        if(params.group) {
+            qb.andWhere({student_group_id: params.group});
+        }
+        if(params.teacher) {
             qb.andWhere(function() {
-                this.where('teacher', 'LIKE', `%${params.teacherName}%`);
+                this.where('teacher', 'LIKE', `%${params.teacher}%`);
             })
         }
         if(params.typeOfWeek) {
