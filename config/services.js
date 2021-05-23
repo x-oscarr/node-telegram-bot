@@ -14,8 +14,10 @@ const Translator = require('../translator');
 const Redis = require('../redis');
 //Commands
 const StartCommand = require('../commands/startCommand');
+const OnlineCommand = require('../commands/onlineCommand');
 //Callbacks
 const CloseCallback = require('../callbacks/closeCallback');
+const ServerInfoCallback = require('../callbacks/serverInfoCallback');
 const AcquaintanceCallback = require('../callbacks/acquaintanceCallback');
 
 module.exports = (container) => {
@@ -70,10 +72,16 @@ module.exports = (container) => {
     container.register('/start', () => {
         return new StartCommand(container);
     });
+    container.register('/online', () => {
+        return new OnlineCommand(container);
+    });
 
     // Telegram Bot callbacks
     container.register('&close', () => {
         return new CloseCallback(container);
+    });
+    container.register('&serverInfo', () => {
+       return new ServerInfoCallback(container);
     });
     container.register('&acquaintance', () => {
         return new AcquaintanceCallback(container);
